@@ -689,8 +689,29 @@ export function getLatestArticles(count = 8): Article[] {
   return [...articles].slice(0, count);
 }
 
-export function getPopularArticles(count = 8): Article[] {
-  return [...articles].slice(0, count);
+export function getPopularArticles(count = 8, viewCounts: Record<string, number> = {}): Article[] {
+  const now = new Date();
+  const threeMonthsAgo = new Date(now.getFullYear(), now.getMonth() - 3, now.getDate());
+
+  const recent: Article[] = [];
+  const rest: Article[] = [];
+
+  for (const a of articles) {
+    const pubDate = new Date(a.date);
+    if (pubDate >= threeMonthsAgo) {
+      recent.push(a);
+    } else {
+      rest.push(a);
+    }
+  }
+
+  // Sort recent articles by date (newest first)
+  recent.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+
+  // Sort remaining articles by view count (highest first)
+  rest.sort((a, b) => (viewCounts[b.slug] ?? 0) - (viewCounts[a.slug] ?? 0));
+
+  return [...recent, ...rest].slice(0, count);
 }
 
 export function getArticleBySlug(slug: string): Article | undefined {

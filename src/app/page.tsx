@@ -1,12 +1,14 @@
 import Hero from '@/components/Hero';
 import ArticleCard from '@/components/ArticleCard';
 import { articles, getPopularArticles, getLatestArticles } from '@/lib/data';
+import { getViewCounts } from '@/lib/views';
 
 export const dynamic = 'force-dynamic';
 
-export default function HomePage() {
+export default async function HomePage() {
   const featured = articles[Math.floor(Math.random() * articles.length)];
-  const popular = getPopularArticles(8);
+  const viewCounts = await getViewCounts();
+  const popular = getPopularArticles(8, viewCounts);
   const latest = getLatestArticles(8);
 
   return (

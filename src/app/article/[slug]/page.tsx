@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { getArticleBySlug, articles, Article } from '@/lib/data';
 import { articleContent } from '@/lib/articleContent';
 import ArticleCard from '@/components/ArticleCard';
+import ViewTracker from '@/components/ViewTracker';
 
 interface ArticlePageProps {
   params: Promise<{ slug: string }>;
@@ -35,6 +36,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
 
   return (
     <main>
+      <ViewTracker slug={slug} />
       {/* Hero image */}
       <div className="relative w-full h-72 md:h-[440px] bg-[#e8efef]">
         <Image
