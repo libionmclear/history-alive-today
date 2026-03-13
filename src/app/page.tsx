@@ -2,8 +2,10 @@ import Hero from '@/components/Hero';
 import ArticleCard from '@/components/ArticleCard';
 import { articles, getPopularArticles, getLatestArticles } from '@/lib/data';
 
+export const dynamic = 'force-dynamic';
+
 export default function HomePage() {
-  const featured = articles.find((a) => a.featured);
+  const featured = articles[Math.floor(Math.random() * articles.length)];
   const popular = getPopularArticles(8);
   const latest = getLatestArticles(8);
 
