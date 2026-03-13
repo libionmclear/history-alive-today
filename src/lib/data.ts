@@ -30,7 +30,7 @@ export const articles: Article[] = [
     date: 'May 27, 2022',
     author: 'Libion McLear',
     excerpt: 'The thumbs up gesture is universally known as a sign of approval, but its origin may surprise you. Traced back to Roman gladiatorial combat, this simple gesture once decided life or death.',
-    image: 'https://historyalivetoday.com/wp-content/uploads/2022/05/Jean-Leon_Gerome_Pollice_Verso-768x516.jpg',
+    image: '/images/uploads/2022/05/Jean-Leon_Gerome_Pollice_Verso-768x516.jpg',
     featured: true,
   },
   {
@@ -42,7 +42,7 @@ export const articles: Article[] = [
     date: 'December 22, 2021',
     author: 'Libion McLear',
     excerpt: 'How did December 25th become the celebrated date of Christmas? The story involves pagan festivals, Roman emperors, and centuries of Christian tradition blending together.',
-    image: 'https://historyalivetoday.com/wp-content/uploads/2021/12/early-babbo-768x517.png',
+    image: '/images/uploads/2021/12/early-babbo-768x517.png',
     featured: true,
   },
   {
@@ -54,7 +54,7 @@ export const articles: Article[] = [
     date: 'September 20, 2021',
     author: 'Libion McLear',
     excerpt: 'Military marching is one of the oldest forms of organized human movement. Discover how ancient armies developed synchronized movement to project power and coordinate troops in battle.',
-    image: 'https://historyalivetoday.com/wp-content/uploads/2021/09/OIP.jpg',
+    image: '/images/uploads/2021/09/OIP.jpg',
   },
   {
     id: 4,
@@ -65,7 +65,7 @@ export const articles: Article[] = [
     date: 'May 11, 2021',
     author: 'Libion McLear',
     excerpt: 'Once revered as sacred beings in ancient Egypt, black cats endured a dramatic reversal of fortune in medieval Europe. Explore how superstition transformed gods into omens.',
-    image: 'https://historyalivetoday.com/wp-content/uploads/2021/05/black-cat-witch.jpg',
+    image: '/images/uploads/2021/05/black-cat-witch.jpg',
   },
   {
     id: 5,
@@ -76,7 +76,7 @@ export const articles: Article[] = [
     date: 'April 11, 2021',
     author: 'Libion McLear',
     excerpt: 'Theatre is one of humanity\'s oldest art forms, born from religious rituals in ancient Greece. Discover how storytelling through performance evolved into the global tradition we know today.',
-    image: 'https://historyalivetoday.com/wp-content/uploads/2021/04/1920px-William_Hogarth_-_David_Garrick_as_Richard_III_-_Google_Art_Project-768x583.jpg',
+    image: '/images/uploads/2021/04/1920px-William_Hogarth_-_David_Garrick_as_Richard_III_-_Google_Art_Project-768x583.jpg',
   },
   {
     id: 6,
@@ -87,7 +87,7 @@ export const articles: Article[] = [
     date: 'March 25, 2021',
     author: 'Libion McLear',
     excerpt: 'Pizza is beloved worldwide, but its roots stretch back thousands of years to ancient flatbreads topped with oils, cheese, and herbs. A delicious journey through culinary history.',
-    image: 'https://historyalivetoday.com/wp-content/uploads/2021/03/pizza-naples-italy.ngsversion.1532633876867.adapt_.1900.1-768x513.jpg',
+    image: '/images/uploads/2021/03/pizza-naples-italy.ngsversion.1532633876867.adapt_.1900.1-768x513.jpg',
   },
   {
     id: 7,
@@ -98,7 +98,7 @@ export const articles: Article[] = [
     date: 'February 14, 2022',
     author: 'Libion McLear',
     excerpt: 'This common expression for something expensive has a surprising history tied to early portraiture, war, and the price people literally paid to be remembered.',
-    image: 'https://historyalivetoday.com/wp-content/uploads/2021/04/gettyimages-159066800-768x432.jpg',
+    image: '/images/uploads/2021/04/gettyimages-159066800-768x432.jpg',
   },
   {
     id: 8,
@@ -109,7 +109,7 @@ export const articles: Article[] = [
     date: 'January 5, 2022',
     author: 'Libion McLear',
     excerpt: 'The words we use for rulers reveal the complex history of power and governance. Trace the linguistic roots of titles that shaped civilizations across centuries.',
-    image: 'https://historyalivetoday.com/wp-content/uploads/2021/03/Charlemagne-emperor-768x450.jpg',
+    image: '/images/uploads/2021/03/Charlemagne-emperor-768x450.jpg',
   },
   {
     id: 9,
@@ -120,7 +120,7 @@ export const articles: Article[] = [
     date: 'November 18, 2021',
     author: 'Libion McLear',
     excerpt: "Archimedes leaping from his bath shouting 'Eureka!' is one of history's most famous moments. But what really happened, and why does this ancient Greek word still echo today?",
-    image: 'https://historyalivetoday.com/wp-content/uploads/2021/03/1920px-Archimede_bain-768x688.jpg',
+    image: '/images/uploads/2021/03/1920px-Archimede_bain-768x688.jpg',
   },
   {
     id: 10,
@@ -131,7 +131,7 @@ export const articles: Article[] = [
     date: 'October 8, 2021',
     author: 'Libion McLear',
     excerpt: 'Before standardized measurement, kingdoms used body parts as units. The yard was once literally the length of a king\'s arm. Explore the chaotic world of historical measurement.',
-    image: 'https://historyalivetoday.com/wp-content/uploads/2021/04/1920px-Imperial_Standards_of_Length_Greenwich-768x512.jpg',
+    image: '/images/uploads/2021/04/1920px-Imperial_Standards_of_Length_Greenwich-768x512.jpg',
   },
   {
     id: 11,
@@ -142,7 +142,7 @@ export const articles: Article[] = [
     date: 'August 30, 2021',
     author: 'Libion McLear',
     excerpt: 'Hanging a horseshoe over your door is a tradition spanning continents and centuries. The belief in its protective power blends blacksmith mythology, iron magic, and Christian legend.',
-    image: 'https://historyalivetoday.com/wp-content/uploads/2021/04/luck-horseshoe-768x529.jpg',
+    image: '/images/uploads/2021/04/luck-horseshoe-768x529.jpg',
   },
   {
     id: 12,
@@ -153,7 +153,7 @@ export const articles: Article[] = [
     date: 'July 15, 2021',
     author: 'Libion McLear',
     excerpt: "The fall of Rome didn't just end an empire — it buried centuries of medical knowledge. Discover which ancient remedies were lost to history and how some were rediscovered.",
-    image: 'https://historyalivetoday.com/wp-content/uploads/2021/04/shutterstock_217367860-768x512.jpg',
+    image: '/images/uploads/2021/04/shutterstock_217367860-768x512.jpg',
   },
   {
     id: 13,
@@ -164,7 +164,7 @@ export const articles: Article[] = [
     date: 'June 22, 2021',
     author: 'Libion McLear',
     excerpt: 'Spoken by billions across religions and languages, "Amen" is one of the most universal words in human history. Its roots in ancient Hebrew and Egyptian religion tell a remarkable story.',
-    image: 'https://historyalivetoday.com/wp-content/uploads/2021/03/Greek-Papyrus-of-Deut-27-15-AMEN.jpg',
+    image: '/images/uploads/2021/03/Greek-Papyrus-of-Deut-27-15-AMEN.jpg',
   },
   {
     id: 14,
@@ -175,7 +175,7 @@ export const articles: Article[] = [
     date: 'May 3, 2021',
     author: 'Libion McLear',
     excerpt: 'Paper changed the world. Invented in ancient China over 2,000 years ago, this revolutionary material transformed communication, governance, art, and the spread of knowledge.',
-    image: 'https://historyalivetoday.com/wp-content/uploads/2021/03/Fabriano-paper-768x375.jpg',
+    image: '/images/uploads/2021/03/Fabriano-paper-768x375.jpg',
   },
   {
     id: 15,
@@ -186,7 +186,7 @@ export const articles: Article[] = [
     date: 'March 10, 2021',
     author: 'Libion McLear',
     excerpt: "Blue jeans are a global fashion staple, but their origins trace back to Genoese sailors, California gold miners, and Levi Strauss's practical innovation in the 1870s.",
-    image: 'https://historyalivetoday.com/wp-content/uploads/2021/03/1880-ad-768x457.jpg',
+    image: '/images/uploads/2021/03/1880-ad-768x457.jpg',
   },
   {
     id: 16,
@@ -197,7 +197,7 @@ export const articles: Article[] = [
     date: 'February 2, 2021',
     author: 'Libion McLear',
     excerpt: "Despite the name, French fries may not be French at all. The debate between France and Belgium over this beloved dish reveals how food history is more complex than you'd expect.",
-    image: 'https://historyalivetoday.com/wp-content/uploads/2021/03/New-Jefferson-French-Fries-768x635.jpg',
+    image: '/images/uploads/2021/03/New-Jefferson-French-Fries-768x635.jpg',
   },
 
   // ---- Auto-generated articles below ----
@@ -210,7 +210,7 @@ export const articles: Article[] = [
     date: 'April 2, 2021',
     author: 'Libion McLear',
     excerpt: 'Some Easter traditions seem disconnected from the religious meaning. In particular, the rebirth traditions of chocolate bunnies and Easter eggs.',
-    image: 'https://historyalivetoday.com/wp-content/uploads/2021/04/Easter-Bunny-768x554.jpg',
+    image: '/images/uploads/2021/04/Easter-Bunny-768x554.jpg',
   },
   {
     id: 18,
@@ -221,7 +221,7 @@ export const articles: Article[] = [
     date: 'March 30, 2021',
     author: 'Libion McLear',
     excerpt: 'Sleeping Beauty waking up with a prince kiss is a tale millions of kids have enjoyed through the ages. In fact, the story has been enjoyed for many more years than people think! We all know the Disney',
-    image: 'https://historyalivetoday.com/wp-content/uploads/2021/03/sleep-beu.jpg',
+    image: '/images/uploads/2021/03/sleep-beu.jpg',
   },
   {
     id: 19,
@@ -232,7 +232,7 @@ export const articles: Article[] = [
     date: 'March 26, 2021',
     author: 'Libion McLear',
     excerpt: 'There are many countries in the world that claim to be the first “true” Republic. Whether they are right or not, the concept of Republic is a very old one. In fact, different civilizations have adopte',
-    image: 'https://historyalivetoday.com/wp-content/uploads/2021/03/we-the-people.png',
+    image: '/images/uploads/2021/03/we-the-people.png',
   },
   {
     id: 20,
@@ -243,7 +243,7 @@ export const articles: Article[] = [
     date: 'March 26, 2021',
     author: 'Libion McLear',
     excerpt: 'The Romans and the Vikings were probably the first non-natives to visit the Americas. Although not a well known fact, Roman coins were found in Canada, Florida and South America. Whether Romans did vi',
-    image: 'https://historyalivetoday.com/wp-content/uploads/2021/03/shutterstock_116350189-768x630.jpg',
+    image: '/images/uploads/2021/03/shutterstock_116350189-768x630.jpg',
   },
   {
     id: 21,
@@ -254,7 +254,7 @@ export const articles: Article[] = [
     date: 'March 24, 2021',
     author: 'Libion McLear',
     excerpt: 'In the absence of a full moon the streets of ancient cities were pitch dark with almost no visibility. Muggers, thieves, and assassins thrived at night thanks to their ability to hide and surprise the',
-    image: 'https://historyalivetoday.com/wp-content/uploads/2021/03/Rome-at-night-768x495.jpg',
+    image: '/images/uploads/2021/03/Rome-at-night-768x495.jpg',
   },
   {
     id: 22,
@@ -265,7 +265,7 @@ export const articles: Article[] = [
     date: 'March 19, 2021',
     author: 'Libion McLear',
     excerpt: 'In some regions of the world masks are used all the time whenever a cold arises as respect to others. In other instances masks are worn to protect our health in highly polluted areas. Since 2020, mask',
-    image: 'https://historyalivetoday.com/wp-content/uploads/2021/03/shutterstock_1709103154-768x513.jpg',
+    image: '/images/uploads/2021/03/shutterstock_1709103154-768x513.jpg',
   },
   {
     id: 23,
@@ -276,7 +276,7 @@ export const articles: Article[] = [
     date: 'March 18, 2021',
     author: 'Libion McLear',
     excerpt: 'According to legend, Julius Caesar’s mother gave birth to her son through a Caesarian section. Their have been many speculations and studies on this possibility. Was that actually possible over 2,000 ',
-    image: 'https://historyalivetoday.com/wp-content/uploads/2021/03/Cotta.jpg',
+    image: '/images/uploads/2021/03/Cotta.jpg',
   },
   {
     id: 24,
@@ -287,7 +287,7 @@ export const articles: Article[] = [
     date: 'March 17, 2021',
     author: 'Libion McLear',
     excerpt: 'Toothache is considered one of the worst pain we can suffer and most of us know how horrible it can be. In the past there were not many choices when toothache became so intolerable to limit even the m',
-    image: 'https://historyalivetoday.com/wp-content/uploads/2021/03/Egyptian-dentist-768x594.jpg',
+    image: '/images/uploads/2021/03/Egyptian-dentist-768x594.jpg',
   },
   {
     id: 25,
@@ -298,7 +298,7 @@ export const articles: Article[] = [
     date: 'March 16, 2021',
     author: 'Libion McLear',
     excerpt: 'The sword. A blunt weapon that for millenia has been used to conquer, defend, kill and to show power and status. Who invented it? How did it come about? Was it found in different parts of the world at',
-    image: 'https://historyalivetoday.com/wp-content/uploads/2021/03/featured-sword-768x392.jpg',
+    image: '/images/uploads/2021/03/featured-sword-768x392.jpg',
   },
   {
     id: 26,
@@ -309,7 +309,7 @@ export const articles: Article[] = [
     date: 'March 15, 2021',
     author: 'Libion McLear',
     excerpt: 'We take the number Pi for granted as we take for granted all the perfect round shapes that surround us. We celebrated Pi on March 14 while we probably were annoyed by it in school. Still, Pi remains o',
-    image: 'https://historyalivetoday.com/wp-content/uploads/2021/03/Pi-768x304.jpg',
+    image: '/images/uploads/2021/03/Pi-768x304.jpg',
   },
   {
     id: 27,
@@ -320,7 +320,7 @@ export const articles: Article[] = [
     date: 'March 14, 2021',
     author: 'Libion McLear',
     excerpt: 'Walking under a ladder is considered really bad luck, which really makes sense. The ladder might fall and cause harm to the daring soul who wants to challenge this superstition. Is the superstition ju',
-    image: 'https://historyalivetoday.com/wp-content/uploads/2021/03/Walking-under-ladder-768x432.jpg',
+    image: '/images/uploads/2021/03/Walking-under-ladder-768x432.jpg',
   },
   {
     id: 28,
@@ -331,7 +331,7 @@ export const articles: Article[] = [
     date: 'March 14, 2021',
     author: 'Libion McLear',
     excerpt: 'Perspiration and body odor are not a modern day exclusive. We often think that people in the past “were just used to certain odors” more than we are today. Probably true, but a bad smell is still unpl',
-    image: 'https://historyalivetoday.com/wp-content/uploads/2021/03/Armpit-Statue-768x506.jpg',
+    image: '/images/uploads/2021/03/Armpit-Statue-768x506.jpg',
   },
   {
     id: 29,
@@ -342,7 +342,7 @@ export const articles: Article[] = [
     date: 'March 10, 2021',
     author: 'Libion McLear',
     excerpt: 'Percussions, wind and string instruments have been around for a long time in the pursuit of entertaining people with music. The story of the violin is long and crosses many continents, although the vi',
-    image: 'https://historyalivetoday.com/wp-content/uploads/2021/03/violin-old-painting.jpg',
+    image: '/images/uploads/2021/03/violin-old-painting.jpg',
   },
   {
     id: 30,
@@ -353,7 +353,7 @@ export const articles: Article[] = [
     date: 'March 9, 2021',
     author: 'Libion McLear',
     excerpt: 'In the late 50s and early 60s a Hula Hoop fad conquered the United Stated. Different sizes, different bright colors were spun around hips throughout the nation by wiggling hips. In merely six months i',
-    image: 'https://historyalivetoday.com/wp-content/uploads/2021/03/Ganymede-Hoop-768x819.jpg',
+    image: '/images/uploads/2021/03/Ganymede-Hoop-768x819.jpg',
   },
   {
     id: 31,
@@ -364,7 +364,7 @@ export const articles: Article[] = [
     date: 'March 8, 2021',
     author: 'Libion McLear',
     excerpt: 'March 8th in most of the world is International Women’s day. A day were Women all of the world are celebrated. When did it start? Was there something similar in the past? What is the history behind it',
-    image: 'https://historyalivetoday.com/wp-content/uploads/2021/03/Festival-of-women-768x548.jpg',
+    image: '/images/uploads/2021/03/Festival-of-women-768x548.jpg',
   },
   {
     id: 32,
@@ -375,7 +375,7 @@ export const articles: Article[] = [
     date: 'March 8, 2021',
     author: 'Libion McLear',
     excerpt: 'There are 75 countries in the world that drive on the left side of the road, roughly 31% of all the countries in the world. Most of these territories were at some point part of the British Empire and ',
-    image: 'https://historyalivetoday.com/wp-content/uploads/2021/03/London-Traffic-1800s-768x562.jpg',
+    image: '/images/uploads/2021/03/London-Traffic-1800s-768x562.jpg',
   },
   {
     id: 33,
@@ -386,7 +386,7 @@ export const articles: Article[] = [
     date: 'March 8, 2021',
     author: 'Libion McLear',
     excerpt: 'There are tons of stories around the origin of spaghetti that we all know and love. A common legend tells of the Venetian Marco Polo bringing spaghetti from China. Well, think again. That legend has b',
-    image: 'https://historyalivetoday.com/wp-content/uploads/2021/03/pasta-painting.jpg',
+    image: '/images/uploads/2021/03/pasta-painting.jpg',
   },
   {
     id: 34,
@@ -397,7 +397,7 @@ export const articles: Article[] = [
     date: 'March 6, 2021',
     author: 'Libion McLear',
     excerpt: 'There are so many things that we use and believe without knowing its origins. Why is it traditional for married couples to wear a gold ring on their annular finger? Where does the tradition come from?',
-    image: 'https://historyalivetoday.com/wp-content/uploads/2021/03/gold-ring.jpg',
+    image: '/images/uploads/2021/03/gold-ring.jpg',
   },
   {
     id: 35,
@@ -408,7 +408,7 @@ export const articles: Article[] = [
     date: 'March 5, 2021',
     author: 'Libion McLear',
     excerpt: 'To many it might seem that “pants” or “trousers” are a common logical piece of clothing. Yet, have you ever seen a Greek Philosopher, a Roman Emperor, or an Egyptian Pharaoh wearing them? Where do the',
-    image: 'https://historyalivetoday.com/wp-content/uploads/2021/03/Three-wise-man-ravenna-6-century-768x437.jpg',
+    image: '/images/uploads/2021/03/Three-wise-man-ravenna-6-century-768x437.jpg',
   },
   {
     id: 36,
@@ -419,7 +419,7 @@ export const articles: Article[] = [
     date: 'March 3, 2021',
     author: 'Libion McLear',
     excerpt: 'In March finding a Shamrock is considered very lucky. The three leaves of a Shamrock are meant to represent hope, faith and love. A great omen. However, only the rare four leave clover is considered a',
-    image: 'https://historyalivetoday.com/wp-content/uploads/2021/03/PATRICK-SHAMROCK.jpg',
+    image: '/images/uploads/2021/03/PATRICK-SHAMROCK.jpg',
   },
   {
     id: 37,
@@ -430,7 +430,7 @@ export const articles: Article[] = [
     date: 'March 3, 2021',
     author: 'Libion McLear',
     excerpt: 'If you wear vision glasses chances are you probably wondered how miserable life must have been without eyeglasses. Well, you were right. Vision problems have been around much longer than eyeglasses fo',
-    image: 'https://historyalivetoday.com/wp-content/uploads/2021/03/Pope-Leo-X-glasses-768x493.jpg',
+    image: '/images/uploads/2021/03/Pope-Leo-X-glasses-768x493.jpg',
   },
   {
     id: 38,
@@ -441,7 +441,7 @@ export const articles: Article[] = [
     date: 'March 1, 2021',
     author: 'Libion McLear',
     excerpt: 'The Wheel is one of those human designed objects that doesn’t even seem like an invention. It simply feels like they have always been around, but they actually haven’t. The term itself “reinventing th',
-    image: 'https://historyalivetoday.com/wp-content/uploads/2021/03/shutterstock_1344417866-768x512.jpg',
+    image: '/images/uploads/2021/03/shutterstock_1344417866-768x512.jpg',
   },
   {
     id: 39,
@@ -452,7 +452,7 @@ export const articles: Article[] = [
     date: 'March 1, 2021',
     author: 'Libion McLear',
     excerpt: 'In the English language, we often compare apples to oranges to illustrate we are comparing two different things to each other and how those differences cannot be compared equally. But are apples and o',
-    image: 'https://historyalivetoday.com/wp-content/uploads/2021/03/Apple-and-Oranges-768x422.jpg',
+    image: '/images/uploads/2021/03/Apple-and-Oranges-768x422.jpg',
   },
   {
     id: 40,
@@ -463,7 +463,7 @@ export const articles: Article[] = [
     date: 'February 28, 2021',
     author: 'Libion McLear',
     excerpt: 'Candles as we know them are not an ancient invention. The dark nights for many millennia were made brighter by fires and oil lamps before the candle came to “light”. There are historians that assume t',
-    image: 'https://historyalivetoday.com/wp-content/uploads/2021/02/Candle.jpg',
+    image: '/images/uploads/2021/02/Candle.jpg',
   },
   {
     id: 41,
@@ -474,7 +474,7 @@ export const articles: Article[] = [
     date: 'February 26, 2021',
     author: 'Libion McLear',
     excerpt: 'The crisscross-shaped pretzels are often associated with Danish, Scandinavian, or German treats. They did, however, not originate in northern Europe.',
-    image: 'https://historyalivetoday.com/wp-content/uploads/2021/02/pretzel.jpg',
+    image: '/images/uploads/2021/02/pretzel.jpg',
   },
   {
     id: 42,
@@ -485,7 +485,7 @@ export const articles: Article[] = [
     date: 'February 26, 2021',
     author: 'Libion McLear',
     excerpt: 'Only a few centuries ago there was a profession that combined pulling teeth, sewing you up, and shaving you. These highly-skilled professionals were called barbers. From the Clergy to the Barbers In t',
-    image: 'https://historyalivetoday.com/wp-content/uploads/2021/02/Featured-image-barbershop-pole.jpg',
+    image: '/images/uploads/2021/02/Featured-image-barbershop-pole.jpg',
   },
   {
     id: 43,
@@ -496,7 +496,7 @@ export const articles: Article[] = [
     date: 'February 24, 2021',
     author: 'Libion McLear',
     excerpt: 'Why do we wish our friends to “break a leg” when we wish them good luck? There are multiple explanations for this unique saying, some are born out of superstition and other out of historical facts. Th',
-    image: 'https://historyalivetoday.com/wp-content/uploads/2021/02/theatre-break-a-leg.jpg',
+    image: '/images/uploads/2021/02/theatre-break-a-leg.jpg',
   },
   {
     id: 44,
@@ -507,7 +507,7 @@ export const articles: Article[] = [
     date: 'February 23, 2021',
     author: 'Libion McLear',
     excerpt: 'Fizzy (carbonated) drinks–whether alcoholic or non-alcoholic–have been around since humans learned about the fermentation of foods. Every region on earth has produced some sort of fizzy, fermented dri',
-    image: 'https://historyalivetoday.com/wp-content/uploads/2021/02/Carbonation-768x499.jpg',
+    image: '/images/uploads/2021/02/Carbonation-768x499.jpg',
   },
   {
     id: 45,
@@ -518,7 +518,7 @@ export const articles: Article[] = [
     date: 'February 23, 2021',
     author: 'Libion McLear',
     excerpt: 'We take windows for granted. Windows protect us from the cold, keep the warm or cool air inside our homes, and buffer noise. But glass windows have not been the norm throughout history. How long have ',
-    image: 'https://historyalivetoday.com/wp-content/uploads/2021/02/Middle-age-glass-window.jpg',
+    image: '/images/uploads/2021/02/Middle-age-glass-window.jpg',
   },
   {
     id: 46,
@@ -529,7 +529,7 @@ export const articles: Article[] = [
     date: 'February 22, 2021',
     author: 'Libion McLear',
     excerpt: 'Not the whole picture According to site like Wikipedia and other historical sites, pedestrian crossing or Zebra crossing lines are a modern invention. But are they really? Basically, NO! Cars and new ',
-    image: 'https://historyalivetoday.com/wp-content/uploads/2021/02/Beattles-in-Pompey-light-try-1-768x499.jpg',
+    image: '/images/uploads/2021/02/Beattles-in-Pompey-light-try-1-768x499.jpg',
   },
   {
     id: 47,
@@ -540,7 +540,7 @@ export const articles: Article[] = [
     date: 'February 20, 2021',
     author: 'Libion McLear',
     excerpt: 'Breaking a mirror is often associated with one of the worst event that could happen to a superstitious person. But why? When did this belief start? Why exactly 7 years of bad luck? The first Mirrors T',
-    image: 'https://historyalivetoday.com/wp-content/uploads/2021/02/Greek-broken-mirror-768x764.jpg',
+    image: '/images/uploads/2021/02/Greek-broken-mirror-768x764.jpg',
   },
   {
     id: 48,
@@ -551,7 +551,7 @@ export const articles: Article[] = [
     date: 'February 19, 2021',
     author: 'Libion McLear',
     excerpt: 'We all associate knights with chivalric tales of the Middle Ages: men in shiny armor who loved to joust and save damsels in distress. But who were the first knights, what did they do, and where have t',
-    image: 'https://historyalivetoday.com/wp-content/uploads/2021/02/Knight-768x635.jpg',
+    image: '/images/uploads/2021/02/Knight-768x635.jpg',
   },
   {
     id: 49,
@@ -562,7 +562,7 @@ export const articles: Article[] = [
     date: 'February 19, 2021',
     author: 'Libion McLear',
     excerpt: 'When did we start to shake hands? What was the meaning of the first hand clasping? Why do we shake our hands up and down? Find out here!',
-    image: 'https://historyalivetoday.com/wp-content/uploads/2021/02/Babylon-handshake-768x554.jpg',
+    image: '/images/uploads/2021/02/Babylon-handshake-768x554.jpg',
   },
   {
     id: 50,
@@ -573,7 +573,7 @@ export const articles: Article[] = [
     date: 'February 9, 2021',
     author: 'Libion McLear',
     excerpt: 'Where does the senate come from?  Why do some states have a Senate? The senate is an old institution that has been around for thousands of years.',
-    image: 'https://historyalivetoday.com/wp-content/uploads/2021/02/Roman-Senate-768x533.jpg',
+    image: '/images/uploads/2021/02/Roman-Senate-768x533.jpg',
   },
   {
     id: 51,
@@ -584,7 +584,7 @@ export const articles: Article[] = [
     date: 'February 9, 2021',
     author: 'Libion McLear',
     excerpt: 'The First Chair – A Symbol When did we as humans start to rest our bodies on a chair? Chairs have not always been a common item. In fact for centuries, a chair meant one thing, the symbol of power – T',
-    image: 'https://historyalivetoday.com/wp-content/uploads/2021/02/Egyption-chair-768x768.jpg',
+    image: '/images/uploads/2021/02/Egyption-chair-768x768.jpg',
   },
   {
     id: 52,
@@ -595,7 +595,7 @@ export const articles: Article[] = [
     date: 'February 8, 2021',
     author: 'Libion McLear',
     excerpt: 'White elephants were considered sacred animals in south Asia, especially in Siam (now Thailand). However, the upkeep of these enormous beasts was quite expensive. Kings often gifted these sacred anima',
-    image: 'https://historyalivetoday.com/wp-content/uploads/2021/02/white-elephant-768x403.jpg',
+    image: '/images/uploads/2021/02/white-elephant-768x403.jpg',
   },
   {
     id: 53,
@@ -606,7 +606,7 @@ export const articles: Article[] = [
     date: 'February 8, 2021',
     author: 'Libion McLear',
     excerpt: 'Etc. is an abbreviation that we use often in writing and in common speech. The expression became very popular in the 1950s. But is it real Latin or not? Was it used the same way 2,000 years ago? Origi',
-    image: 'https://historyalivetoday.com/wp-content/uploads/2021/02/ancient-roman-writing.jpg',
+    image: '/images/uploads/2021/02/ancient-roman-writing.jpg',
   },
   {
     id: 54,
@@ -617,7 +617,7 @@ export const articles: Article[] = [
     date: 'February 8, 2021',
     author: 'Libion McLear',
     excerpt: 'Why do we knock on wood for good luck or to ward off bad luck? Different Origins, Similar Meanings There are a couple of theories but most likely all lead to the same origin of this superstitious gest',
-    image: 'https://historyalivetoday.com/wp-content/uploads/2021/02/touching-wood-2-768x693.jpg',
+    image: '/images/uploads/2021/02/touching-wood-2-768x693.jpg',
   },
   {
     id: 55,
@@ -628,7 +628,7 @@ export const articles: Article[] = [
     date: 'February 8, 2021',
     author: 'Libion McLear',
     excerpt: 'If you think that it is to wish speedy recovery you are wrong. It is actually too save the sneezer’s soul and preserve your own health! Origins, The Justinian Plague The Romans used to say “Jupiter pr',
-    image: 'https://historyalivetoday.com/wp-content/uploads/2021/02/shutterstock_127840856-768x490.jpg',
+    image: '/images/uploads/2021/02/shutterstock_127840856-768x490.jpg',
   },
   {
     id: 56,
@@ -639,7 +639,7 @@ export const articles: Article[] = [
     date: 'February 6, 2021',
     author: 'Libion McLear',
     excerpt: '[featured image shows off a Roman extending his finger in defiance, the bust was found in Scotland] Origin of Flipping Off Flipping people off is as old as mankind itself. The one finger flip and the ',
-    image: 'https://historyalivetoday.com/wp-content/uploads/2021/02/double-middle-finger.jpg',
+    image: '/images/uploads/2021/02/double-middle-finger.jpg',
   },
   {
     id: 57,
@@ -650,7 +650,7 @@ export const articles: Article[] = [
     date: 'February 5, 2021',
     author: 'Libion McLear',
     excerpt: 'Welcome to the newly launched “History Alive Today” website. The intent of this new site is to bring you fun snippet of history that have relevance to our daily lives. We are surrounded by objects, sa',
-    image: 'https://historyalivetoday.com/wp-content/uploads/2021/02/HAT-FBK-pic-600-.jpg',
+    image: '/images/uploads/2021/02/HAT-FBK-pic-600-.jpg',
   },
   {
     id: 58,
@@ -661,7 +661,7 @@ export const articles: Article[] = [
     date: 'February 5, 2021',
     author: 'Libion McLear',
     excerpt: 'The phrase it’s “Raining cats and dogs” is first found in writing in 1651 in a poem called Olor Iscanus by a British poet called Henry Vaughan – “the roof was secured against dogs and cats rained in s',
-    image: 'https://historyalivetoday.com/wp-content/uploads/2021/02/Raining-Cats-And-Dogs-NEW-768x501.jpg',
+    image: '/images/uploads/2021/02/Raining-Cats-And-Dogs-NEW-768x501.jpg',
   },
   {
     id: 59,
@@ -672,7 +672,7 @@ export const articles: Article[] = [
     date: 'February 5, 2021',
     author: 'Libion McLear',
     excerpt: 'For thousands of years and even now in certain cutlures, the natural eating instruments were the fingers. Forks were adopted much later than the spoon and the knife. In fact, in comparison they are ne',
-    image: 'https://historyalivetoday.com/wp-content/uploads/2021/02/forks-1-768x395.jpg',
+    image: '/images/uploads/2021/02/forks-1-768x395.jpg',
   },
 ];
 
