@@ -7,6 +7,20 @@ export interface ContentSection {
 }
 
 export const articleContent: Record<string, ContentSection[]> = {
+  'the-long-simmering-history-of-hotpot-in-china': [
+    { type: 'text', text: 'Right now, hotpot is having a moment. Chongqing mala restaurants are opening faster than critics can review them. Chaoshan beef hotpot has gone from regional specialty to nationwide phenomenon. And across the world - from Los Angeles to London - a simmering pot at the center of the table has become one of the defining images of Chinese dining culture. But this is not a trend. It is a tradition more than 2,000 years in the making.' },
+    { type: 'heading', text: 'Origins in Antiquity' },
+    { type: 'text', text: 'The origins of hotpot are still debated. Archaeological discoveries from the Western Han tomb of the Marquis of Haihun uncovered hotpot-like vessels, and records from the Three Kingdoms period describe bronze pots used to cook sliced meats. What began as a practical cooking method gradually became a cultural institution.' },
+    { type: 'heading', text: 'From Taverns to Literary Circles' },
+    { type: 'text', text: 'By the Song dynasty, hotpot had moved into taverns and literary circles alike. One charming account from Lin Hong\'s Shan Jia Qing Gong describes a hermit in the snowy Wuyi Mountains cooking thin slices of rabbit in broth at a small charcoal stove - a scene of friends gathered in winter, eating freely and laughing beside the fire. Lin Hong named the experience Bo Xia Gong, "Plucking the Sunset Glow." In many ways, it still captures hotpot today.' },
+    { type: 'image', src: '/images/uploads/2026/05/hotpot-cloisonne.png', alt: 'Decorated Chinese hotpot vessel on display', caption: 'A later decorative hotpot vessel reflects how function and ritual evolved together.' },
+    { type: 'heading', text: 'Regional Styles Take Root' },
+    { type: 'text', text: 'As centuries passed, the dish spread across regions and classes - from Mongolian territories during the Yuan dynasty to the imperial courts of the Ming and Qing. Distinct regional styles took root: Beijing\'s clean lamb hotpot with sesame sauce; Guangdong\'s delicate seafood-forward "side stove"; and Sichuan and Chongqing\'s fiery, numbing broth, born along the Yangtze among boatmen and dockside laborers who cooked cheap cuts of offal in chili and Sichuan peppercorn to ward off the damp cold. What began as survival food became one of China\'s most celebrated culinary traditions.' },
+    { type: 'heading', text: 'The Vessel Changed, the Ritual Did Not' },
+    { type: 'text', text: 'The vessel changed - from bronze and clay to copper, iron, and eventually induction cookers - but the ritual never did. A pot at the center of the table. Ingredients cooked slowly, shared freely, eaten together.' },
+    { type: 'text', text: 'That is the real reason hotpot endures. Not any single broth or ingredient, but the experience itself. Across two thousand years of history, that simple act of gathering around warmth has never gone out of style.' },
+  ],
+
   'the-dark-origin-of-thumbs-up': [
     { type: 'text', text: 'Historically speaking, if someone gives you the \'thumbs up" you should not be that excited. In fact, originally it meant that the thumb owner wished your death. Throughout time the meaning has morphed, yet the origin of this common gestures stems from the Roman Arenas and Gladiators; although Hollywood and the media has often portrayed the meaning of the "thumbs-up" incorrectly.' },
     { type: 'heading', text: 'Rome and Gladiators' },

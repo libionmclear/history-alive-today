@@ -22,6 +22,17 @@ export const categoryLabels: Record<Category, string> = {
 
 export const articles: Article[] = [
   {
+    id: 60,
+    slug: 'the-long-simmering-history-of-hotpot-in-china',
+    title: 'The Long, Simmering History of Hotpot in China',
+    category: 'things-we-do',
+    categoryLabel: 'Things we do',
+    date: 'May 29, 2026',
+    author: '黄江枫',
+    excerpt: 'Hotpot is having a global moment, but its story stretches back more than two millennia. From Han tomb vessels to modern induction tables, the shared ritual remains the same: gather, simmer, and eat together.',
+    image: '/images/uploads/2026/05/hotpot-bronze.png',
+  },
+  {
     id: 1,
     slug: 'the-dark-origin-of-thumbs-up',
     title: 'The Dark Origin of Thumbs Up',
