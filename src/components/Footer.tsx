@@ -71,9 +71,14 @@ export default function Footer() {
           <p className="text-[#aaaaaa] text-xs">
             © {new Date().getFullYear()} History Alive Today. All rights reserved.
           </p>
-          <Link href="/" className="text-[#aaaaaa] hover:text-white text-xs transition-colors">
-            historyalivetoday.com
-          </Link>
+          <div className="flex items-center gap-4">
+            <Link href="/login" className="text-[#888888] hover:text-[#e2b26f] text-xs transition-colors">
+              Writer login
+            </Link>
+            <Link href="/" className="text-[#aaaaaa] hover:text-white text-xs transition-colors">
+              historyalivetoday.com
+            </Link>
+          </div>
         </div>
       </div>
     </footer>
