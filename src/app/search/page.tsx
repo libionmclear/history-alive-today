@@ -1,5 +1,5 @@
-import { articles } from '@/lib/data';
 import ArticleCard from '@/components/ArticleCard';
+import { searchArticles } from '@/lib/content';
 
 interface SearchPageProps {
   searchParams: Promise<{ q?: string }>;
@@ -7,17 +7,8 @@ interface SearchPageProps {
 
 export default async function SearchPage({ searchParams }: SearchPageProps) {
   const { q = '' } = await searchParams;
-  const query = q.trim().toLowerCase();
-
-  const results = query
-    ? articles.filter(
-        (a) =>
-          a.title.toLowerCase().includes(query) ||
-          a.excerpt.toLowerCase().includes(query) ||
-          a.categoryLabel.toLowerCase().includes(query) ||
-          a.author.toLowerCase().includes(query)
-      )
-    : [];
+  const query = q.trim();
+  const results = await searchArticles(query);
 
   return (
     <main className="max-w-5xl mx-auto px-4 py-10">
