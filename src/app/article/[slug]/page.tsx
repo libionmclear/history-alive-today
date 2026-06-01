@@ -1,21 +1,39 @@
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
-import { getArticleBySlug, articles, Article } from '@/lib/data';
-import { articleContent } from '@/lib/articleContent';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
+import { getArticleBySlug, categoryLabels, Category } from '@/lib/data';
+import { articleContent, ContentSection } from '@/lib/articleContent';
+import { getDynamicArticle, getByCategory } from '@/lib/content';
 import ArticleCard from '@/components/ArticleCard';
 import ViewTracker from '@/components/ViewTracker';
+
+export const dynamic = 'force-dynamic';
 
 interface ArticlePageProps {
   params: Promise<{ slug: string }>;
 }
 
-export async function generateStaticParams() {
-  return articles.map((a) => ({ slug: a.slug }));
+interface DisplayArticle {
+  slug: string;
+  title: string;
+  category: Category;
+  categoryLabel: string;
+  date: string;
+  author: string;
+  excerpt: string;
+  heroImage: string;
+  blocks?: ContentSection[];
+  markdown?: string;
 }
 
 export async function generateMetadata({ params }: ArticlePageProps) {
   const { slug } = await params;
+  const dynamicArticle = await getDynamicArticle(slug);
+  if (dynamicArticle) {
+    return { title: `${dynamicArticle.title} — History Alive Today`, description: dynamicArticle.excerpt };
+  }
   const article = getArticleBySlug(slug);
   if (!article) return {};
   return {
@@ -24,14 +42,46 @@ export async function generateMetadata({ params }: ArticlePageProps) {
   };
 }
 
+async function resolve(slug: string): Promise<DisplayArticle | null> {
+  const d = await getDynamicArticle(slug);
+  if (d) {
+    return {
+      slug: d.slug,
+      title: d.title,
+      category: d.category,
+      categoryLabel: categoryLabels[d.category],
+      date: d.date,
+      author: d.authorName,
+      excerpt: d.excerpt,
+      heroImage: d.heroImage || d.cardImage,
+      markdown: d.bodyMarkdown,
+    };
+  }
+  const s = getArticleBySlug(slug);
+  if (s) {
+    return {
+      slug: s.slug,
+      title: s.title,
+      category: s.category,
+      categoryLabel: s.categoryLabel,
+      date: s.date,
+      author: s.author,
+      excerpt: s.excerpt,
+      heroImage: s.image,
+      blocks: articleContent[s.slug] || [],
+    };
+  }
+  return null;
+}
+
 export default async function ArticlePage({ params }: ArticlePageProps) {
   const { slug } = await params;
-  const article = getArticleBySlug(slug);
+  const article = await resolve(slug);
 
   if (!article) notFound();
 
-  const related = articles
-    .filter((a) => a.category === article.category && a.slug !== article.slug)
+  const related = (await getByCategory(article.category))
+    .filter((a) => a.slug !== article.slug)
     .slice(0, 3);
 
   return (
@@ -40,7 +90,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
       {/* Hero image */}
       <div className="relative w-full h-72 md:h-[440px] bg-[#e8efef]">
         <Image
-          src={article.image}
+          src={article.heroImage}
           alt={article.title}
           fill
           className="object-cover"
@@ -87,35 +137,55 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
 
           {/* Article content */}
           <div className="prose prose-lg max-w-none text-[#444444] leading-relaxed space-y-5">
-            {(articleContent[article.slug] || []).map((section, i) => {
-              switch (section.type) {
-                case 'heading':
-                  return <h2 key={i} className="text-2xl font-bold text-[#333333] mt-10 mb-4">{section.text}</h2>;
-                case 'subheading':
-                  return <h3 key={i} className="text-xl font-bold text-[#333333] mt-8 mb-3">{section.text}</h3>;
-                case 'image':
-                  return (
-                    <figure key={i} className="my-8">
-                      <div className="relative w-full aspect-video overflow-hidden rounded-lg">
-                        <Image
-                          src={section.src!}
-                          alt={section.alt || ''}
-                          fill
-                          className="object-contain"
-                        />
-                      </div>
-                      {section.caption && (
-                        <figcaption className="text-center text-sm text-[#888888] mt-2 italic">
-                          {section.caption}
-                        </figcaption>
-                      )}
-                    </figure>
-                  );
-                case 'text':
-                default:
-                  return <p key={i}>{section.text}</p>;
-              }
-            })}
+            {article.markdown !== undefined ? (
+              <ReactMarkdown
+                remarkPlugins={[remarkGfm]}
+                components={{
+                  h2: ({ children }) => <h2 className="text-2xl font-bold text-[#333333] mt-10 mb-4">{children}</h2>,
+                  h3: ({ children }) => <h3 className="text-xl font-bold text-[#333333] mt-8 mb-3">{children}</h3>,
+                  p: ({ children }) => <p>{children}</p>,
+                  img: ({ src, alt }) => (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img src={typeof src === 'string' ? src : ''} alt={alt || ''} className="my-8 w-full rounded-lg" />
+                  ),
+                  a: ({ href, children }) => (
+                    <a href={href} className="text-[#e2b26f] underline" target="_blank" rel="noreferrer">{children}</a>
+                  ),
+                }}
+              >
+                {article.markdown}
+              </ReactMarkdown>
+            ) : (
+              (article.blocks || []).map((section, i) => {
+                switch (section.type) {
+                  case 'heading':
+                    return <h2 key={i} className="text-2xl font-bold text-[#333333] mt-10 mb-4">{section.text}</h2>;
+                  case 'subheading':
+                    return <h3 key={i} className="text-xl font-bold text-[#333333] mt-8 mb-3">{section.text}</h3>;
+                  case 'image':
+                    return (
+                      <figure key={i} className="my-8">
+                        <div className="relative w-full aspect-video overflow-hidden rounded-lg">
+                          <Image
+                            src={section.src!}
+                            alt={section.alt || ''}
+                            fill
+                            className="object-contain"
+                          />
+                        </div>
+                        {section.caption && (
+                          <figcaption className="text-center text-sm text-[#888888] mt-2 italic">
+                            {section.caption}
+                          </figcaption>
+                        )}
+                      </figure>
+                    );
+                  case 'text':
+                  default:
+                    return <p key={i}>{section.text}</p>;
+                }
+              })
+            )}
           </div>
 
           {/* Back button */}

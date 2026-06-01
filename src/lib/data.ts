@@ -1,7 +1,7 @@
 export type Category = 'things-we-do' | 'things-we-say' | 'things-we-think' | 'things-we-use';
 
 export interface Article {
-  id: number;
+  id: number | string;
   slug: string;
   title: string;
   category: Category;

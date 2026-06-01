@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { incrementView } from '@/lib/views';
+import { trackVisit } from '@/lib/views';
 
 export async function POST(request: NextRequest) {
   const body = await request.json();
@@ -9,6 +9,11 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: 'Invalid slug' }, { status: 400 });
   }
 
-  const views = await incrementView(slug);
+  const referrer = typeof body.referrer === 'string' ? body.referrer.slice(0, 500) : null;
+  // Vercel injects the visitor's country; falls back to null locally.
+  const country = request.headers.get('x-vercel-ip-country');
+  const selfHost = request.headers.get('host');
+
+  const views = await trackVisit(slug, { referrer, country, selfHost });
   return NextResponse.json({ views });
 }

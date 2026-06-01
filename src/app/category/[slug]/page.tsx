@@ -1,6 +1,9 @@
 import { notFound } from 'next/navigation';
 import ArticleCard from '@/components/ArticleCard';
-import { getArticlesByCategory, categoryLabels, Category } from '@/lib/data';
+import { categoryLabels, Category } from '@/lib/data';
+import { getByCategory } from '@/lib/content';
+
+export const dynamic = 'force-dynamic';
 
 interface CategoryPageProps {
   params: Promise<{ slug: string }>;
@@ -32,7 +35,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
   const category = slug as Category;
   const label = categoryLabels[category];
   const description = categoryDescriptions[category];
-  const articles = getArticlesByCategory(category);
+  const articles = await getByCategory(category);
 
   return (
     <main>
