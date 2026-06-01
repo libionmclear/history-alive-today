@@ -1,6 +1,5 @@
 import crypto from 'crypto';
 import { cookies } from 'next/headers';
-import { getRedis } from './redis';
 
 export const SESSION_COOKIE = 'session';
 const SESSION_TTL_SECONDS = 60 * 60 * 24 * 30; // 30 days
@@ -47,35 +46,51 @@ export function isOwnerLogin(username: string, password: string): boolean {
   return a.length === b.length && crypto.timingSafeEqual(a, b);
 }
 
-// ---- Redis-backed sessions ----
+// ---- Stateless signed sessions (no external store needed) ----
+//
+// The session is encoded directly in the cookie and signed with HMAC-SHA256,
+// so it can be verified without Redis. This keeps login working even if the
+// data store is unavailable or its env vars are mis-named.
 
-function sessionKey(token: string): string {
-  return `cms:session:${token}`;
+function sessionSecret(): string {
+  // Prefer an explicit secret; otherwise derive one from the owner password.
+  return process.env.SESSION_SECRET || process.env.ADMIN_PASSWORD || 'history-alive-dev-secret';
 }
 
-/** Creates a session, stores it in Redis, and returns the opaque token. */
+function sign(body: string): string {
+  return crypto.createHmac('sha256', sessionSecret()).update(body).digest('base64url');
+}
+
+/** Builds a signed session token: base64url(payload).hmac */
 export async function createSession(user: SessionUser): Promise<string> {
-  const r = getRedis();
-  const token = crypto.randomBytes(32).toString('hex');
-  if (r) {
-    await r.set(sessionKey(token), JSON.stringify(user), { ex: SESSION_TTL_SECONDS });
-  }
-  return token;
+  const payload = { ...user, exp: Date.now() + SESSION_TTL_SECONDS * 1000 };
+  const body = Buffer.from(JSON.stringify(payload)).toString('base64url');
+  return `${body}.${sign(body)}`;
 }
 
 export async function readSession(token: string | undefined): Promise<SessionUser | null> {
   if (!token) return null;
-  const r = getRedis();
-  if (!r) return null;
-  const raw = await r.get<string | SessionUser>(sessionKey(token));
-  if (!raw) return null;
-  return typeof raw === 'string' ? (JSON.parse(raw) as SessionUser) : raw;
+  const [body, sig] = token.split('.');
+  if (!body || !sig) return null;
+
+  const expected = sign(body);
+  const a = Buffer.from(sig);
+  const b = Buffer.from(expected);
+  if (a.length !== b.length || !crypto.timingSafeEqual(a, b)) return null;
+
+  try {
+    const payload = JSON.parse(Buffer.from(body, 'base64url').toString());
+    if (typeof payload.exp !== 'number' || payload.exp < Date.now()) return null;
+    if (!payload.username || !payload.role) return null;
+    return { username: payload.username, name: payload.name, role: payload.role };
+  } catch {
+    return null;
+  }
 }
 
-export async function destroySession(token: string | undefined): Promise<void> {
-  if (!token) return;
-  const r = getRedis();
-  if (r) await r.del(sessionKey(token));
+/** Stateless sessions need no server-side teardown; clearing the cookie suffices. */
+export async function destroySession(token?: string): Promise<void> {
+  void token; // nothing to revoke server-side
 }
 
 export function sessionCookieOptions() {
