@@ -67,8 +67,10 @@ export default async function AdminPage() {
         <main className="max-w-3xl mx-auto px-4 py-16">
           <h1 className="text-2xl font-bold text-[#333333]">Analytics unavailable</h1>
           <p className="text-[#888888] mt-2">
-            Redis is not configured. Set <code>KV_REST_API_URL</code> and{' '}
-            <code>KV_REST_API_TOKEN</code> to start collecting analytics.
+            Redis is not connected. Create an Upstash Redis store in Vercel
+            (Storage tab) and connect it to this project, then redeploy. The app
+            reads either <code>KV_REST_API_URL</code>/<code>KV_REST_API_TOKEN</code>{' '}
+            or <code>UPSTASH_REDIS_REST_URL</code>/<code>UPSTASH_REDIS_REST_TOKEN</code>.
           </p>
         </main>
       </>
