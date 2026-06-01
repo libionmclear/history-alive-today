@@ -22,6 +22,17 @@ export const categoryLabels: Record<Category, string> = {
 
 export const articles: Article[] = [
   {
+    id: 61,
+    slug: 'why-do-bridesmaids-all-dress-the-same',
+    title: 'Why Do Bridesmaids All Dress the Same? Blame the Romans',
+    category: 'things-we-do',
+    categoryLabel: 'Things we do',
+    date: 'May 31, 2026',
+    author: 'Libion McLear',
+    excerpt: 'If you have ever worn a dress identical to four other people at a wedding, you may have wondered who invented this peculiar custom. The answer leads back to Ancient Rome — and the original reason had nothing to do with photographs. It had to do with fooling demons.',
+    image: '/images/uploads/2026/05/roman-wedding-procession.png',
+  },
+  {
     id: 60,
     slug: 'the-long-simmering-history-of-hotpot-in-china',
     title: 'The Long, Simmering History of Hotpot in China',
