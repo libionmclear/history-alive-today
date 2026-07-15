@@ -15,7 +15,7 @@ export interface ArticlePageData {
   markdown?: string;
 }
 
-const SITE_URL = 'https://historyalivetoday.com';
+const SITE_URL = 'https://www.historyalivetoday.com';
 
 function absoluteUrl(path: string): string {
   if (!path) return '';
