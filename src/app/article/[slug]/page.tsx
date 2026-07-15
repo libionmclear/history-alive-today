@@ -3,11 +3,11 @@ import Image from 'next/image';
 import Link from 'next/link';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
-import { getArticleBySlug, categoryLabels, Category } from '@/lib/data';
-import { articleContent, ContentSection } from '@/lib/articleContent';
-import { getDynamicArticle, getByCategory } from '@/lib/content';
+import { Category } from '@/lib/data';
+import { getByCategory } from '@/lib/content';
 import ArticleCard from '@/components/ArticleCard';
 import ViewTracker from '@/components/ViewTracker';
+import { buildArticleMeta, resolveArticlePage, type ArticlePageData } from './articleMeta';
 
 export const dynamic = 'force-dynamic';
 
@@ -15,68 +15,17 @@ interface ArticlePageProps {
   params: Promise<{ slug: string }>;
 }
 
-interface DisplayArticle {
-  slug: string;
-  title: string;
-  category: Category;
-  categoryLabel: string;
-  date: string;
-  author: string;
-  excerpt: string;
-  heroImage: string;
-  blocks?: ContentSection[];
-  markdown?: string;
-}
-
 export async function generateMetadata({ params }: ArticlePageProps) {
   const { slug } = await params;
-  const dynamicArticle = await getDynamicArticle(slug);
-  if (dynamicArticle) {
-    return { title: `${dynamicArticle.title} — History Alive Today`, description: dynamicArticle.excerpt };
-  }
-  const article = getArticleBySlug(slug);
+  const article = await resolveArticlePage(slug);
   if (!article) return {};
-  return {
-    title: `${article.title} — History Alive Today`,
-    description: article.excerpt,
-  };
-}
 
-async function resolve(slug: string): Promise<DisplayArticle | null> {
-  const d = await getDynamicArticle(slug);
-  if (d) {
-    return {
-      slug: d.slug,
-      title: d.title,
-      category: d.category,
-      categoryLabel: categoryLabels[d.category],
-      date: d.date,
-      author: d.authorName,
-      excerpt: d.excerpt,
-      heroImage: d.heroImage || d.cardImage,
-      markdown: d.bodyMarkdown,
-    };
-  }
-  const s = getArticleBySlug(slug);
-  if (s) {
-    return {
-      slug: s.slug,
-      title: s.title,
-      category: s.category,
-      categoryLabel: s.categoryLabel,
-      date: s.date,
-      author: s.author,
-      excerpt: s.excerpt,
-      heroImage: s.image,
-      blocks: articleContent[s.slug] || [],
-    };
-  }
-  return null;
+  return buildArticleMeta(article);
 }
 
 export default async function ArticlePage({ params }: ArticlePageProps) {
   const { slug } = await params;
-  const article = await resolve(slug);
+  const article = await resolveArticlePage(slug);
 
   if (!article) notFound();
 

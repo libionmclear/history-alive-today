@@ -9,6 +9,7 @@ import { SpeedInsights } from '@vercel/speed-insights/next';
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://historyalivetoday.com'),
   title: 'History Alive Today — Why We are What We are',
   description:
     'A fun way to learn the history that matters in small bites. Discover how everyday objects, sayings, behaviors, and traditions stem from human experience across millennia.',
