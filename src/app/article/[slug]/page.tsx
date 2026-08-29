@@ -57,7 +57,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
             {article.title}
           </h1>
           <p className="text-white/70 text-sm mt-2">
-            {article.date} · By {article.author}
+            By {article.author}
           </p>
         </div>
       </div>
@@ -121,6 +121,23 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
                             fill
                             className="object-contain"
                           />
+                        </div>
+                        {section.caption && (
+                          <figcaption className="text-center text-sm text-[#888888] mt-2 italic">
+                            {section.caption}
+                          </figcaption>
+                        )}
+                      </figure>
+                    );
+                  case 'imagePair':
+                    return (
+                      <figure key={i} className="my-8">
+                        <div className="grid grid-cols-2 gap-4">
+                          {(section.images || []).map((img, j) => (
+                            <div key={j} className="relative w-full aspect-[3/4] overflow-hidden rounded-lg">
+                              <Image src={img.src} alt={img.alt} fill className="object-contain" />
+                            </div>
+                          ))}
                         </div>
                         {section.caption && (
                           <figcaption className="text-center text-sm text-[#888888] mt-2 italic">

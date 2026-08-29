@@ -1,12 +1,53 @@
 export interface ContentSection {
-  type: 'text' | 'heading' | 'image' | 'subheading';
+  type: 'text' | 'heading' | 'image' | 'subheading' | 'imagePair';
   text?: string;
   src?: string;
   alt?: string;
   caption?: string;
+  /** For 'imagePair': two images shown side by side under one shared caption. */
+  images?: { src: string; alt: string }[];
 }
 
 export const articleContent: Record<string, ContentSection[]> = {
+  'why-do-graduates-dress-like-medieval-clerics': [
+    { type: 'image', src: '/images/uploads/2026/08/medieval-lecture-laurentius-de-voltolina.jpg', alt: 'A 14th-century painting of a professor at a lectern facing rows of students, all wearing hoods and long gowns.', caption: 'A university lecture, painted in the second half of the 1300s. Every student in the room is in a hood and gown — and several are asleep. Laurentius de Voltolina, Liber ethicorum des Henricus de Alemannia; Kupferstichkabinett, Staatliche Museen zu Berlin.' },
+    { type: 'text', text: 'Every spring, millions of people put on a black tent, drape a strip of coloured silk down their back, balance a flat square board on their head, and walk across a stage. Nobody thinks this is strange. It is, in fact, extremely strange. What you are wearing is the working uniform of a 13th-century churchman — right down to the hat, which was designed to keep a shaved head warm in a stone room with no fire.' },
+    { type: 'heading', text: 'A University Was a Church Job' },
+    { type: 'text', text: 'The first universities — Bologna around 1088, then Paris, Oxford and Cambridge by the early 1200s — were not campuses. They were guilds of teachers and students, and almost all of them were clerics in minor orders. That was not a spiritual detail, it was a legal one: clerical status brought privileges, including the right to be tried in church courts rather than by the town. Many students wore the tonsure, the shaved crown that marked a man of the Church.' },
+    { type: 'text', text: 'So they dressed like clergy, because they were clergy. Long tunic, cloak over the top, hood on the head. And they kept the hood on indoors, because medieval lecture halls were unheated stone, the winters were long, and the top of your head had been shaved.' },
+    { type: 'heading', text: 'The Cloak That Started It: 1222' },
+    { type: 'image', src: '/images/uploads/2026/08/stephen-langton-seal.jpg', alt: 'A 13th-century wax seal impression showing Archbishop Stephen Langton standing in vestments with a crozier.', caption: 'Stephen Langton’s own seal. In 1222 he put England’s clergy into a closed cloak; the universities are still wearing the descendant of it.' },
+    { type: 'text', text: 'In 1222, Stephen Langton — the Archbishop of Canterbury better known for standing behind Magna Carta — held the Council of Oxford and ordered England’s secular clergy into the cappa clausa: a closed cloak, sewn shut down the front with only slits for the hands. It was meant to look sober. It also made it nearly impossible to reach for a purse or a weapon.' },
+    { type: 'text', text: 'Parish priests across England largely ignored the ruling. The universities did not. Oxford and Cambridge enforced it, wrote it into statute, and kept enforcing it for centuries after everyone else had moved on. By the 1300s English colleges were passing rules against "excess in apparel" and prescribing plain long gowns — the medieval equivalent of a dress code memo. The heavy closed cloak eventually opened down the front and grew wide sleeves, and that is the gown you rented last June.' },
+    { type: 'heading', text: 'The Hood That Stopped Being a Hood' },
+    { type: 'image', src: '/images/uploads/2026/08/loggan-oxford-proctor-hood-1675.jpg', alt: 'A 1675 engraving of an Oxford Proctor in profile wearing a gown and a fur-lined hood draped over the shoulders.', caption: 'An Oxford Proctor, engraved by David Loggan in 1675. The hood has already stopped being headgear and become decoration.' },
+    { type: 'text', text: 'The medieval academic hood had three working parts: a cape over the shoulders, a cowl you pulled over your head, and a long tail hanging down the back called a liripipe. All three had jobs. The cowl was rain protection. The liripipe could be wrapped around the neck like a scarf, or used as a handle to yank the hood off.' },
+    { type: 'text', text: 'Then fashion moved on. Separate caps arrived — by around 1321 a skullcap was already replacing the hood as everyday headgear — and the hood slid backwards off the head and stayed there, flattened against the shoulders, useless. Nobody removed it, because by then it had become the thing that showed what you had studied. That is the single most medieval fact about your graduation outfit: the hood is a piece of dead weather gear that survived purely because it had turned into a status symbol.' },
+    { type: 'image', src: '/images/uploads/2026/08/oxford-encaenia-2009.jpg', alt: 'Oxford Proctors and members of Congregation in gowns, hoods and mortarboards processing out of the Sheldonian Theatre.', caption: 'Oxford Proctors at Encaenia, 2009. Compare Loggan’s 1675 engraving above: same office, same hood, same hat. Photo © Pruneau / Wikimedia Commons / CC BY-SA 3.0.' },
+    { type: 'heading', text: 'How a Skullcap Became a Square' },
+    { type: 'text', text: 'The cap started as the pileus, a round brimless skullcap borrowed from the clergy and ultimately from Roman headgear. Over time it split in two. Law and medicine favoured the taller, round pileus rotundus. The clergy, and then the universities, took up the pileus quadratus — a soft square cap that used less cloth and, by the mid-1500s, signalled seriousness. Squareness, in the peculiar logic of the period, meant rigour.' },
+    { type: 'imagePair', images: [
+      { src: '/images/uploads/2026/08/loggan-oxford-commoner-1675.jpg', alt: 'A 1675 engraving of an Oxford Commoner in an academic gown wearing a soft round cap.' },
+      { src: '/images/uploads/2026/08/loggan-oxford-dd-1675.jpg', alt: 'A 1675 engraving of an Oxford Doctor of Divinity in an academic gown wearing a flat square cap.' },
+    ], caption: 'Oxford, 1675: a Commoner in the round cap (left) and a Doctor of Divinity in the square one (right). The square cap outranked the round one — and note that neither has a tassel.' },
+    { type: 'text', text: 'At 17th-century Oxford the two caps marked rank: round for undergraduates, square for the higher degrees, until wealthy undergraduates won the right to the square one too. David Loggan’s 1675 engravings of Oxford dress show both styles clearly — and, tellingly, no tassels at all. The soft square cap was later stiffened with a board, and English speakers looked at the result and named it after a bricklayer’s tool: the flat square mortarboard used for holding mortar. The British also call it a "trencher," after a serving platter. Either way, your academic crown is named after a piece of manual labour equipment.' },
+    { type: 'heading', text: 'The Colours Are a Victorian Invention' },
+    { type: 'text', text: 'Here is where the medieval story quietly ends. Those faculty colours — white for arts, green for medicine, purple for law, dark blue for the doctorate — are not old. In 1887 a Williams College graduate named Gardner Cotrell Leonard designed gowns for his class, then spent years campaigning for a national standard. In 1895 an Intercollegiate Commission meeting at Columbia produced the American code that fixed gown shapes, hood sizes, tassels and the colour of every discipline. The American Council on Education approved it in 1932 and revised it in 1959.' },
+    { type: 'text', text: 'So the outfit is medieval. The rainbow is American, and younger than the telephone.' },
+    { type: 'heading', text: 'Why We Throw Them' },
+    { type: 'image', src: '/images/uploads/2026/08/annapolis-graduation-cap-toss-2005.jpg', alt: 'Dozens of white naval caps in the air against a blue sky, thrown by graduating midshipmen in white uniforms.', caption: 'Annapolis, 2005. The hat toss began here in 1912, when newly commissioned officers were handed their officer caps and had nothing to do with the old ones. U.S. Navy photo by Photographer’s Mate 2nd Class Daniel J. McLain.' },
+    { type: 'text', text: 'Even the cap toss is recent and oddly specific. The graduating class of the U.S. Naval Academy in 1912 were commissioned as officers and issued new officer caps on the spot — which left them holding their old midshipman caps with nothing to do. They threw them in the air. Everyone else copied it.' },
+    { type: 'text', text: 'Which leaves the modern ceremony as a stack of accidents: a cloak from an archbishop’s crackdown, a hood that stopped working around 1321, a hat named after bricklaying, colours invented by a 19th-century businessman, and a finale borrowed from the Navy.' },
+    { type: 'heading', text: 'Fun Fact' },
+    { type: 'text', text: 'The tassel-flip — right side to left on being awarded the degree — is barely a century old and appears in no medieval statute anywhere. It is a 20th-century American piece of theatre, invented to give the audience a visible moment. The most-photographed gesture at any graduation is also the only part of the costume with no history at all.' },
+    { type: 'heading', text: 'Sources' },
+    { type: 'text', text: 'The Burgon Society, "History" of academic dress — the Council of Oxford (1222), the cappa clausa, and the three parts of the hood.' },
+    { type: 'text', text: 'Encyclopedia.com, "Academic Dress" — scholastic guilds, the pileus, pileus quadratus, and the 1895 code.' },
+    { type: 'text', text: 'History.com, "How Did Flat-Topped Caps Become a Graduation Tradition?" — Bologna, Loggan’s 1675 plates, mortarboards and tassels.' },
+    { type: 'text', text: 'National Geographic, "Why do graduates wear those strange square hats?" — round vs. square caps at Oxford, the 1912 Naval Academy cap toss.' },
+    { type: 'text', text: 'Texas A&M International University, "Academic Costumes and Regalia: A Brief History and Chronology" — the 1321 skullcap, Gardner Cotrell Leonard (1887), the 1895 Commission, 1932 and 1959 revisions.' },
+  ],
+
   'why-do-bridesmaids-all-dress-the-same': [
     { type: 'text', text: 'If you have ever stood in a wedding party wearing a dress identical to four other people — chosen by someone else, in a color you would never have picked — you may have wondered who invented this peculiar custom. The answer, like so many of our traditions, leads us back to Ancient Rome. And the original reason had nothing to do with looking nice in photographs. It had to do with fooling demons.' },
     { type: 'heading', text: 'Rome and the Ten Witnesses' },

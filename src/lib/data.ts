@@ -22,6 +22,17 @@ export const categoryLabels: Record<Category, string> = {
 
 export const articles: Article[] = [
   {
+    id: 62,
+    slug: 'why-do-graduates-dress-like-medieval-clerics',
+    title: 'Why Do Graduates Dress Like Medieval Clerics? Blame the Cold',
+    category: 'things-we-do',
+    categoryLabel: 'Things we do',
+    date: 'August 28, 2026',
+    author: 'Libion McLear',
+    excerpt: 'Every spring, millions of people put on a black tent, drape a strip of coloured silk down their back and balance a flat square board on their head. Nobody thinks this is strange. It is, in fact, the working uniform of a 13th-century churchman — right down to the hat, designed to keep a shaved head warm in an unheated stone room.',
+    image: '/images/uploads/2026/08/medieval-lecture-laurentius-de-voltolina.jpg',
+  },
+  {
     id: 61,
     slug: 'why-do-bridesmaids-all-dress-the-same',
     title: 'Why Do Bridesmaids All Dress the Same? Blame the Romans',
