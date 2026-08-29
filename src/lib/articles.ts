@@ -277,3 +277,37 @@ export async function getPublishedArticles(): Promise<Article[]> {
   const list = await listPublished();
   return list.map(toArticle);
 }
+
+export interface AuthorCounts {
+  draft: number;
+  pending: number;
+  published: number;
+  rejected: number;
+  total: number;
+}
+
+function emptyCounts(): AuthorCounts {
+  return { draft: 0, pending: 0, published: 0, rejected: 0, total: 0 };
+}
+
+/** Per-author article tallies by status, for the account management screen. */
+export async function getAuthorCounts(usernames: string[]): Promise<Record<string, AuthorCounts>> {
+  const entries = await Promise.all(
+    usernames.map(async (username) => {
+      const counts = emptyCounts();
+      for (const a of await listByAuthor(username)) {
+        counts[a.status] += 1;
+        counts.total += 1;
+      }
+      return [username, counts] as const;
+    }),
+  );
+  return Object.fromEntries(entries);
+}
+
+/** Keeps existing bylines in sync when an account's display name changes. */
+export async function renameAuthor(username: string, name: string): Promise<number> {
+  const stale = (await listByAuthor(username)).filter((a) => a.authorName !== name);
+  await Promise.all(stale.map((a) => write({ ...a, authorName: name })));
+  return stale.length;
+}

@@ -24,7 +24,11 @@ The site has a private back office, all behind a shared login at `/login`.
   referrers, top countries, and a 30-day views chart (custom tracking in Redis).
 - **`/admin/review`** — editorial review queue: approve writer submissions to
   publish them live, or reject with a note.
-- **`/admin/writers`** — create writer/admin accounts and set their passwords.
+- **`/admin/users`** — account management: create writer/admin accounts, change roles
+  and display names, reset passwords (with a generator), and delete accounts. Each
+  row shows that person’s article counts by status. Renaming someone rewrites the
+  byline on their existing articles. The env-based owner is listed read-only, and
+  you cannot delete your own account or drop your own admin access.
 - **`/writer`** — a writer's dashboard: draft articles in a Markdown editor with
   a live preview, upload images, pick the card thumbnail and hero image, then
   submit for review.

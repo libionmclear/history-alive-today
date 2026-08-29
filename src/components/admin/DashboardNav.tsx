@@ -11,7 +11,7 @@ export default function DashboardNav({ user, active }: DashboardNavProps) {
   const links: { href: string; label: string; key: string; adminOnly?: boolean }[] = [
     { href: '/admin', label: 'Analytics', key: 'analytics', adminOnly: true },
     { href: '/admin/review', label: 'Review queue', key: 'review', adminOnly: true },
-    { href: '/admin/writers', label: 'Writers', key: 'writers', adminOnly: true },
+    { href: '/admin/users', label: 'Users', key: 'users', adminOnly: true },
     { href: '/writer', label: 'My articles', key: 'writer' },
   ];
 

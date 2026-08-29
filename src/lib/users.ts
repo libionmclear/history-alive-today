@@ -108,3 +108,45 @@ export async function verifyUser(username: string, password: string): Promise<St
   if (!user) return null;
   return verifyPassword(password, user.passwordHash) ? user : null;
 }
+
+export async function getPublicUser(username: string): Promise<PublicUser | null> {
+  const u = await getUser(username);
+  return u ? toPublic(u) : null;
+}
+
+export interface UpdateUserPatch {
+  name?: string;
+  role?: Role;
+}
+
+export interface UpdateUserResult {
+  ok: boolean;
+  error?: string;
+  user?: PublicUser;
+}
+
+/** Updates an account's display name and/or role. Passwords go through setUserPassword. */
+export async function updateUser(
+  username: string,
+  patch: UpdateUserPatch,
+): Promise<UpdateUserResult> {
+  const r = getRedis();
+  if (!r) return { ok: false, error: 'Storage not configured' };
+
+  const existing = await getUser(username);
+  if (!existing) return { ok: false, error: 'User not found' };
+
+  const next: StoredUser = { ...existing };
+
+  if (patch.name !== undefined) {
+    const name = patch.name.trim();
+    if (name.length < 1 || name.length > 60) {
+      return { ok: false, error: 'Display name must be 1–60 characters' };
+    }
+    next.name = name;
+  }
+  if (patch.role !== undefined) next.role = patch.role;
+
+  await r.hset(USERS_KEY, { [next.username]: JSON.stringify(next) });
+  return { ok: true, user: toPublic(next) };
+}
