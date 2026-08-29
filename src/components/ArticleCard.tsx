@@ -26,7 +26,6 @@ export default function ArticleCard({ article, variant = 'default' }: ArticleCar
           <h3 className="text-[#333333] text-sm font-semibold leading-snug group-hover:text-[#e2b26f] transition-colors line-clamp-2">
             {article.title}
           </h3>
-          <p className="text-[#aaaaaa] text-[10px] mt-1">{article.date}</p>
         </div>
       </Link>
     );
@@ -53,8 +52,7 @@ export default function ArticleCard({ article, variant = 'default' }: ArticleCar
         <p className="text-[#777777] text-xs leading-relaxed mb-4 line-clamp-3">
           {article.excerpt}
         </p>
-        <div className="flex items-center justify-between">
-          <span className="text-[#aaaaaa] text-xs">{article.date}</span>
+        <div className="flex items-center">
           <span className="text-[#aaaaaa] text-xs">{article.author}</span>
         </div>
       </div>

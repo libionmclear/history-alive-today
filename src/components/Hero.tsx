@@ -111,7 +111,7 @@ export default function Hero({ featuredArticle }: HeroProps) {
                       {featuredArticle.title}
                     </h2>
                     <p className="text-[#aaaaaa] text-xs">
-                      {featuredArticle.date} · {featuredArticle.author}
+                      {featuredArticle.author}
                     </p>
                   </div>
                 </div>
