@@ -22,6 +22,17 @@ export const categoryLabels: Record<Category, string> = {
 
 export const articles: Article[] = [
   {
+    id: 63,
+    slug: 'why-does-an-hour-have-60-minutes',
+    title: 'Why Does an Hour Have 60 Minutes? Blame Babylon',
+    category: 'things-we-use',
+    categoryLabel: 'Things we use',
+    date: 'August 31, 2026',
+    author: 'Libion McLear',
+    excerpt: 'Sixty seconds to the minute, sixty minutes to the hour, three hundred and sixty degrees to a circle. Not one of those numbers is a ten. We decimalised money, distance and weight — France even tried to decimalise the clock — and yet time still counts in sixties, because a civilisation in southern Iraq liked a number that divides cleanly.',
+    image: '/images/uploads/2026/08/babylonian-tablet-ybc-7289.jpg',
+  },
+  {
     id: 62,
     slug: 'why-do-graduates-dress-like-medieval-clerics',
     title: 'Why Do Graduates Dress Like Medieval Clerics? Blame the Cold',
