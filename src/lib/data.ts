@@ -22,6 +22,17 @@ export const categoryLabels: Record<Category, string> = {
 
 export const articles: Article[] = [
   {
+    id: 64,
+    slug: 'ciao-really-means-i-am-your-slave',
+    title: 'Ciao Really Means "I Am Your Slave"',
+    category: 'things-we-say',
+    categoryLabel: 'Things we say',
+    date: 'September 5, 2026',
+    author: 'Libion McLear',
+    excerpt: 'It is the friendliest word in Europe — warm, quick, and said twice, once arriving and once leaving. It also began life as a way of telling someone that you belonged to them, and the word hiding underneath it is older and a great deal darker.',
+    image: '/images/uploads/2026/09/venice-rialto-carpaccio.jpg',
+  },
+  {
     id: 63,
     slug: 'why-does-an-hour-have-60-minutes',
     title: 'Why Does an Hour Have 60 Minutes? Blame Babylon',
