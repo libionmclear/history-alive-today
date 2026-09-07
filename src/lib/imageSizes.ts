@@ -275,10 +275,14 @@ export const imageSizes: Record<string, ImageSize> = {
   "/images/uploads/2026/08/salisbury-cathedral-clock.jpg": { width: 4032, height: 3024 },
   "/images/uploads/2026/08/senenmut-astronomical-ceiling.jpg": { width: 2913, height: 3722 },
   "/images/uploads/2026/08/stephen-langton-seal.jpg": { width: 442, height: 684 },
+  "/images/uploads/2026/09/cappuccino-cup.jpg": { width: 6000, height: 4000 },
+  "/images/uploads/2026/09/capuchin-friar-murbach.jpg": { width: 2300, height: 3005 },
+  "/images/uploads/2026/09/capuchin-monkey-costa-rica.jpg": { width: 1505, height: 1473 },
   "/images/uploads/2026/09/giovanni-verga-portrait.jpg": { width: 1787, height: 2107 },
   "/images/uploads/2026/09/hemingway-milan-1918.jpg": { width: 760, height: 1281 },
   "/images/uploads/2026/09/italian-emigrants-ellis-island-1905.jpg": { width: 3656, height: 4664 },
   "/images/uploads/2026/09/venice-rialto-carpaccio.jpg": { width: 2400, height: 2257 },
+  "/images/uploads/2026/09/vienna-cafe-griensteidl-1896.jpg": { width: 1490, height: 997 },
 };
 
 export function getImageSize(src: string): ImageSize | undefined {

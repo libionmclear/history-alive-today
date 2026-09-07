@@ -22,6 +22,17 @@ export const categoryLabels: Record<Category, string> = {
 
 export const articles: Article[] = [
   {
+    id: 65,
+    slug: 'your-cappuccino-is-named-after-a-monks-robe',
+    title: 'Your Cappuccino Is Named After a Monk’s Robe',
+    category: 'things-we-use',
+    categoryLabel: 'Things we use',
+    date: 'September 6, 2026',
+    author: 'Libion McLear',
+    excerpt: 'You order one without thinking about it. It is named after a religious order — and so, for exactly the same reason, is a South American monkey. But not for the reason almost everyone gives.',
+    image: '/images/uploads/2026/09/vienna-cafe-griensteidl-1896.jpg',
+  },
+  {
     id: 64,
     slug: 'ciao-really-means-i-am-your-slave',
     title: 'Ciao Really Means "I Am Your Slave"',
