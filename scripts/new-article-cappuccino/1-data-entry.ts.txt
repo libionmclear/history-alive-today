@@ -9,6 +9,6 @@
     categoryLabel: 'Things we use',
     date: 'September 6, 2026',
     author: 'Libion McLear',
-    excerpt: 'You order one without thinking about it. It is named after a religious order — and so, for exactly the same reason, is a South American monkey. But not for the reason almost everyone gives.',
+    excerpt: 'You order one without thinking about it. It is named after a religious order — but not for the reason almost everyone thinks.',
     image: '/images/uploads/2026/09/friar-with-cappuccino.jpg',
   },

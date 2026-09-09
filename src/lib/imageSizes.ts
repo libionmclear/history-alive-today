@@ -278,7 +278,7 @@ export const imageSizes: Record<string, ImageSize> = {
   "/images/uploads/2026/09/cappuccino-cup.jpg": { width: 6000, height: 4000 },
   "/images/uploads/2026/09/capuchin-friar-murbach.jpg": { width: 2300, height: 3005 },
   "/images/uploads/2026/09/capuchin-monkey-costa-rica.jpg": { width: 1505, height: 1473 },
-  "/images/uploads/2026/09/friar-with-cappuccino.jpg": { width: 924, height: 600 },
+  "/images/uploads/2026/09/friar-with-cappuccino.jpg": { width: 924, height: 430 },
   "/images/uploads/2026/09/giovanni-verga-portrait.jpg": { width: 1787, height: 2107 },
   "/images/uploads/2026/09/hemingway-milan-1918.jpg": { width: 760, height: 1281 },
   "/images/uploads/2026/09/italian-emigrants-ellis-island-1905.jpg": { width: 3656, height: 4664 },
