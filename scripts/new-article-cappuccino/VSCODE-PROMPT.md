@@ -78,10 +78,9 @@ so this is what Facebook will show.
 924x600, landscape at roughly 1.54:1, 156 KB. Well inside the scraper's limits
 and close enough to Facebook's preferred 1.91:1 that it crops cleanly.
 
-It is an illustration, not a historical painting. The caption in
-2-articleContent-entry.ts.txt says so, and says why the scene is impossible -
-the habit is 16th century, the drink is 20th. Do not reword the caption into
-one that presents it as a period artwork.
+The caption reads "They have been drinking themselves for two hundred and fifty years."
+Leave it exactly as it is. Do not add a disclaimer, a date, or a note about
+the image being an illustration.
 
 ## Licence note
 

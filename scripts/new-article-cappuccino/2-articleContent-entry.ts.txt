@@ -2,13 +2,14 @@
 // (immediately after the line:  export const articleContent: Record<string, ContentSection[]> = { )
 
   'your-cappuccino-is-named-after-a-monks-robe': [
-    { type: 'image', src: '/images/uploads/2026/09/friar-with-cappuccino.jpg', alt: 'An illustration in the style of an old oil painting: a bearded friar in a brown habit sitting at a wooden table in a tavern, raising a cup of cappuccino.', caption: 'A friar and a cappuccino — a meeting that never actually happened. The habit is 16th century, the drink is 20th, and the four hundred years in between are what this story is about. Illustration for History Alive Today.' },
+    { type: 'image', src: '/images/uploads/2026/09/friar-with-cappuccino.jpg', alt: 'An illustration in the style of an old oil painting: a bearded friar in a brown habit sitting at a wooden table in a tavern, raising a cup of cappuccino.', caption: 'They have been drinking themselves for two hundred and fifty years.' },
     { type: 'text', text: 'A cappuccino, please.' },
     { type: 'text', text: 'You order one without thinking about it. It is named after a religious order — but not for the reason almost everyone thinks.' },
     { type: 'heading', text: 'The Friars Were Named After a Hood' },
     { type: 'image', src: '/images/uploads/2026/09/capuchin-friar-murbach.jpg', alt: 'An 18th-century painting of a bearded friar in a brown habit sitting with a kneeling man.', caption: 'A Capuchin friar at work, painted in 1767. That brown is the whole reason your coffee has its name. Painting Docteur Ralph / Wikimedia Commons / CC BY-SA 3.0.' },
     { type: 'text', text: 'In 1525 a group of Franciscans decided their order had gone soft. They wanted to live the way Francis of Assisi had lived, in the habit they believed he had worn: plain, rough, and finished with a long pointed hood.' },
     { type: 'text', text: 'The Italian for hood is cappuccio. Behind it sits cappa, a cape, and behind that the Latin caput, head — the same root that gives us cap. People saw these men going about under their unmistakable cowls and started calling them cappuccini, the hooded ones. The nickname stuck. It is still their official name today: the Order of Friars Minor Capuchin.' },
+    { type: 'text', text: 'They are not a historical curiosity either. There are Capuchins in that same brown habit today, in about a hundred countries — which means somewhere this morning, a man wearing the reason it has that name is very probably drinking one.' },
     { type: 'text', text: 'So the friars are named after the hood. The drink is not. That is where everyone goes wrong.' },
     { type: 'heading', text: 'Vienna Named a Colour' },
     { type: 'image', src: '/images/uploads/2026/09/vienna-cafe-griensteidl-1896.jpg', alt: 'A painting of the crowded interior of a Viennese coffee house in the 1890s, with waiters and seated customers reading newspapers.', caption: 'A Viennese coffee house, painted in 1896. Menus like this one had been listing a Kapuziner for a century. Vienna is where the word comes from — but not the drink.' },
