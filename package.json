@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "prebuild": "node scripts/generate-image-sizes.mjs",
+    "prebuild": "node scripts/generate-image-sizes.mjs && node scripts/generate-legacy-redirects.mjs",
     "build": "next build",
     "start": "next start",
     "lint": "eslint"
