@@ -1,4 +1,6 @@
-// Downloads the article images for
+// Downloads the three Commons images for
+// (the lead illustration, friar-with-cappuccino.jpg, is already committed in the repo)
+//
 // "Your Cappuccino Is Named After a Monk's Robe"
 // from Wikimedia Commons into public/images/uploads/2026/09.
 //
@@ -30,12 +32,6 @@ const IMAGES = [
     "commons": "Cappuccino in original.jpg",
     "licence": "CC BY 2.0",
     "credit": "MUST CREDIT: Vee Satayamas / CC BY 2.0"
-  },
-  {
-    "out": "capuchin-monkey-costa-rica.jpg",
-    "commons": "Capuchin Costa Rica.jpg",
-    "licence": "CC BY-SA 3.0",
-    "credit": "MUST CREDIT: David M. Jensen (Storkk) / CC BY-SA 3.0"
   }
 ];
 
