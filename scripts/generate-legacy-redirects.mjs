@@ -57,11 +57,19 @@ for (const [from, to] of [...pairs].sort()) {
     skipped.push(from);
     continue;
   }
-  // Plain post-name permalink.
+  // Plain post-name permalink. Both slash forms are listed because
+  // skipTrailingSlashRedirect is on: WordPress links end in a slash, and
+  // letting Next strip it first would cost an extra redirect hop.
   redirects.push({ source: `/${from}`, destination: `/article/${to}`, permanent: true });
+  redirects.push({ source: `/${from}/`, destination: `/article/${to}`, permanent: true });
   // Date-based permalink; the year/month are matched but discarded.
   redirects.push({
     source: `/:year(\\d{4})/:month(\\d{2})/${from}`,
+    destination: `/article/${to}`,
+    permanent: true,
+  });
+  redirects.push({
+    source: `/:year(\\d{4})/:month(\\d{2})/${from}/`,
     destination: `/article/${to}`,
     permanent: true,
   });

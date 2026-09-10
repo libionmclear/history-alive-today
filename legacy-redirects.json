@@ -5,7 +5,17 @@
     "permanent": true
   },
   {
+    "source": "/a-special-welcome/",
+    "destination": "/article/a-special-welcome",
+    "permanent": true
+  },
+  {
     "source": "/:year(\\d{4})/:month(\\d{2})/a-special-welcome",
+    "destination": "/article/a-special-welcome",
+    "permanent": true
+  },
+  {
+    "source": "/:year(\\d{4})/:month(\\d{2})/a-special-welcome/",
     "destination": "/article/a-special-welcome",
     "permanent": true
   },
@@ -15,7 +25,17 @@
     "permanent": true
   },
   {
+    "source": "/actors-acting-and-the-birth-of-theatre/",
+    "destination": "/article/actors-acting-and-the-birth-of-theatre",
+    "permanent": true
+  },
+  {
     "source": "/:year(\\d{4})/:month(\\d{2})/actors-acting-and-the-birth-of-theatre",
+    "destination": "/article/actors-acting-and-the-birth-of-theatre",
+    "permanent": true
+  },
+  {
+    "source": "/:year(\\d{4})/:month(\\d{2})/actors-acting-and-the-birth-of-theatre/",
     "destination": "/article/actors-acting-and-the-birth-of-theatre",
     "permanent": true
   },
@@ -25,7 +45,17 @@
     "permanent": true
   },
   {
+    "source": "/america-and-the-naming-of-a-new-continent/",
+    "destination": "/article/america-and-the-naming-of-a-new-continent",
+    "permanent": true
+  },
+  {
     "source": "/:year(\\d{4})/:month(\\d{2})/america-and-the-naming-of-a-new-continent",
+    "destination": "/article/america-and-the-naming-of-a-new-continent",
+    "permanent": true
+  },
+  {
+    "source": "/:year(\\d{4})/:month(\\d{2})/america-and-the-naming-of-a-new-continent/",
     "destination": "/article/america-and-the-naming-of-a-new-continent",
     "permanent": true
   },
@@ -35,7 +65,17 @@
     "permanent": true
   },
   {
+    "source": "/ancient-medicines-lost-for-1000-years/",
+    "destination": "/article/ancient-medicines-lost-for-1000-years",
+    "permanent": true
+  },
+  {
     "source": "/:year(\\d{4})/:month(\\d{2})/ancient-medicines-lost-for-1000-years",
+    "destination": "/article/ancient-medicines-lost-for-1000-years",
+    "permanent": true
+  },
+  {
+    "source": "/:year(\\d{4})/:month(\\d{2})/ancient-medicines-lost-for-1000-years/",
     "destination": "/article/ancient-medicines-lost-for-1000-years",
     "permanent": true
   },
@@ -45,7 +85,17 @@
     "permanent": true
   },
   {
+    "source": "/bless-you-and-sneeze/",
+    "destination": "/article/bless-you-and-sneeze",
+    "permanent": true
+  },
+  {
     "source": "/:year(\\d{4})/:month(\\d{2})/bless-you-and-sneeze",
+    "destination": "/article/bless-you-and-sneeze",
+    "permanent": true
+  },
+  {
+    "source": "/:year(\\d{4})/:month(\\d{2})/bless-you-and-sneeze/",
     "destination": "/article/bless-you-and-sneeze",
     "permanent": true
   },
@@ -55,7 +105,17 @@
     "permanent": true
   },
   {
+    "source": "/ciao-really-means-i-am-your-slave/",
+    "destination": "/article/ciao-really-means-i-am-your-slave",
+    "permanent": true
+  },
+  {
     "source": "/:year(\\d{4})/:month(\\d{2})/ciao-really-means-i-am-your-slave",
+    "destination": "/article/ciao-really-means-i-am-your-slave",
+    "permanent": true
+  },
+  {
+    "source": "/:year(\\d{4})/:month(\\d{2})/ciao-really-means-i-am-your-slave/",
     "destination": "/article/ciao-really-means-i-am-your-slave",
     "permanent": true
   },
@@ -65,7 +125,17 @@
     "permanent": true
   },
   {
+    "source": "/dai-non-puo-essere-ostis/",
+    "destination": "/article/dai-non-puo-essere-ostis",
+    "permanent": true
+  },
+  {
     "source": "/:year(\\d{4})/:month(\\d{2})/dai-non-puo-essere-ostis",
+    "destination": "/article/dai-non-puo-essere-ostis",
+    "permanent": true
+  },
+  {
+    "source": "/:year(\\d{4})/:month(\\d{2})/dai-non-puo-essere-ostis/",
     "destination": "/article/dai-non-puo-essere-ostis",
     "permanent": true
   },
@@ -75,7 +145,17 @@
     "permanent": true
   },
   {
+    "source": "/december-25th-birth-of-christmas/",
+    "destination": "/article/december-25th-birth-of-christmas",
+    "permanent": true
+  },
+  {
     "source": "/:year(\\d{4})/:month(\\d{2})/december-25th-birth-of-christmas",
+    "destination": "/article/december-25th-birth-of-christmas",
+    "permanent": true
+  },
+  {
+    "source": "/:year(\\d{4})/:month(\\d{2})/december-25th-birth-of-christmas/",
     "destination": "/article/december-25th-birth-of-christmas",
     "permanent": true
   },
@@ -85,7 +165,17 @@
     "permanent": true
   },
   {
+    "source": "/december-25th-the-birth-of-christmas/",
+    "destination": "/article/december-25th-birth-of-christmas",
+    "permanent": true
+  },
+  {
     "source": "/:year(\\d{4})/:month(\\d{2})/december-25th-the-birth-of-christmas",
+    "destination": "/article/december-25th-birth-of-christmas",
+    "permanent": true
+  },
+  {
+    "source": "/:year(\\d{4})/:month(\\d{2})/december-25th-the-birth-of-christmas/",
     "destination": "/article/december-25th-birth-of-christmas",
     "permanent": true
   },
@@ -95,7 +185,17 @@
     "permanent": true
   },
   {
+    "source": "/et-cetera/",
+    "destination": "/article/et-cetera",
+    "permanent": true
+  },
+  {
     "source": "/:year(\\d{4})/:month(\\d{2})/et-cetera",
+    "destination": "/article/et-cetera",
+    "permanent": true
+  },
+  {
+    "source": "/:year(\\d{4})/:month(\\d{2})/et-cetera/",
     "destination": "/article/et-cetera",
     "permanent": true
   },
@@ -105,7 +205,17 @@
     "permanent": true
   },
   {
+    "source": "/flatbreads-and-the-evolution-of-pizza/",
+    "destination": "/article/flatbreads-and-the-evolution-of-pizza",
+    "permanent": true
+  },
+  {
     "source": "/:year(\\d{4})/:month(\\d{2})/flatbreads-and-the-evolution-of-pizza",
+    "destination": "/article/flatbreads-and-the-evolution-of-pizza",
+    "permanent": true
+  },
+  {
+    "source": "/:year(\\d{4})/:month(\\d{2})/flatbreads-and-the-evolution-of-pizza/",
     "destination": "/article/flatbreads-and-the-evolution-of-pizza",
     "permanent": true
   },
@@ -115,7 +225,17 @@
     "permanent": true
   },
   {
+    "source": "/history-of-the-flatbread-called-pizza/",
+    "destination": "/article/flatbreads-and-the-evolution-of-pizza",
+    "permanent": true
+  },
+  {
     "source": "/:year(\\d{4})/:month(\\d{2})/history-of-the-flatbread-called-pizza",
+    "destination": "/article/flatbreads-and-the-evolution-of-pizza",
+    "permanent": true
+  },
+  {
+    "source": "/:year(\\d{4})/:month(\\d{2})/history-of-the-flatbread-called-pizza/",
     "destination": "/article/flatbreads-and-the-evolution-of-pizza",
     "permanent": true
   },
@@ -125,7 +245,17 @@
     "permanent": true
   },
   {
+    "source": "/hula-hoops-a-20th-century-fad-3000-years-old/",
+    "destination": "/article/hula-hoops-a-20th-century-fad-3000-years-old",
+    "permanent": true
+  },
+  {
     "source": "/:year(\\d{4})/:month(\\d{2})/hula-hoops-a-20th-century-fad-3000-years-old",
+    "destination": "/article/hula-hoops-a-20th-century-fad-3000-years-old",
+    "permanent": true
+  },
+  {
+    "source": "/:year(\\d{4})/:month(\\d{2})/hula-hoops-a-20th-century-fad-3000-years-old/",
     "destination": "/article/hula-hoops-a-20th-century-fad-3000-years-old",
     "permanent": true
   },
@@ -135,7 +265,17 @@
     "permanent": true
   },
   {
+    "source": "/i-just-broke-a-mirror-7-years-of-bad-luck-wait-why/",
+    "destination": "/article/i-just-broke-a-mirror-7-years-of-bad-luck-wait-why",
+    "permanent": true
+  },
+  {
     "source": "/:year(\\d{4})/:month(\\d{2})/i-just-broke-a-mirror-7-years-of-bad-luck-wait-why",
+    "destination": "/article/i-just-broke-a-mirror-7-years-of-bad-luck-wait-why",
+    "permanent": true
+  },
+  {
+    "source": "/:year(\\d{4})/:month(\\d{2})/i-just-broke-a-mirror-7-years-of-bad-luck-wait-why/",
     "destination": "/article/i-just-broke-a-mirror-7-years-of-bad-luck-wait-why",
     "permanent": true
   },
@@ -145,7 +285,17 @@
     "permanent": true
   },
   {
+    "source": "/its-raining-cats-and-dogs/",
+    "destination": "/article/its-raining-cats-and-dogs",
+    "permanent": true
+  },
+  {
     "source": "/:year(\\d{4})/:month(\\d{2})/its-raining-cats-and-dogs",
+    "destination": "/article/its-raining-cats-and-dogs",
+    "permanent": true
+  },
+  {
+    "source": "/:year(\\d{4})/:month(\\d{2})/its-raining-cats-and-dogs/",
     "destination": "/article/its-raining-cats-and-dogs",
     "permanent": true
   },
@@ -155,7 +305,17 @@
     "permanent": true
   },
   {
+    "source": "/knowledge-of-ancient-medicines-lost-for-1000-years/",
+    "destination": "/article/ancient-medicines-lost-for-1000-years",
+    "permanent": true
+  },
+  {
     "source": "/:year(\\d{4})/:month(\\d{2})/knowledge-of-ancient-medicines-lost-for-1000-years",
+    "destination": "/article/ancient-medicines-lost-for-1000-years",
+    "permanent": true
+  },
+  {
+    "source": "/:year(\\d{4})/:month(\\d{2})/knowledge-of-ancient-medicines-lost-for-1000-years/",
     "destination": "/article/ancient-medicines-lost-for-1000-years",
     "permanent": true
   },
@@ -165,7 +325,17 @@
     "permanent": true
   },
   {
+    "source": "/lets-shake-hands-shall-we-wait-why/",
+    "destination": "/article/lets-shake-hands-shall-we-wait-why",
+    "permanent": true
+  },
+  {
     "source": "/:year(\\d{4})/:month(\\d{2})/lets-shake-hands-shall-we-wait-why",
+    "destination": "/article/lets-shake-hands-shall-we-wait-why",
+    "permanent": true
+  },
+  {
+    "source": "/:year(\\d{4})/:month(\\d{2})/lets-shake-hands-shall-we-wait-why/",
     "destination": "/article/lets-shake-hands-shall-we-wait-why",
     "permanent": true
   },
@@ -175,7 +345,17 @@
     "permanent": true
   },
   {
+    "source": "/measuring-the-historical-yard/",
+    "destination": "/article/measuring-the-historical-yard",
+    "permanent": true
+  },
+  {
     "source": "/:year(\\d{4})/:month(\\d{2})/measuring-the-historical-yard",
+    "destination": "/article/measuring-the-historical-yard",
+    "permanent": true
+  },
+  {
+    "source": "/:year(\\d{4})/:month(\\d{2})/measuring-the-historical-yard/",
     "destination": "/article/measuring-the-historical-yard",
     "permanent": true
   },
@@ -185,7 +365,17 @@
     "permanent": true
   },
   {
+    "source": "/origin-of-military-marching/",
+    "destination": "/article/the-beginning-of-military-marching",
+    "permanent": true
+  },
+  {
     "source": "/:year(\\d{4})/:month(\\d{2})/origin-of-military-marching",
+    "destination": "/article/the-beginning-of-military-marching",
+    "permanent": true
+  },
+  {
+    "source": "/:year(\\d{4})/:month(\\d{2})/origin-of-military-marching/",
     "destination": "/article/the-beginning-of-military-marching",
     "permanent": true
   },
@@ -195,7 +385,17 @@
     "permanent": true
   },
   {
+    "source": "/origins-of-emperors-kings-kaisers-rex-and-dictators/",
+    "destination": "/article/origins-of-emperors-kings-kaisers-rex-and-dictators",
+    "permanent": true
+  },
+  {
     "source": "/:year(\\d{4})/:month(\\d{2})/origins-of-emperors-kings-kaisers-rex-and-dictators",
+    "destination": "/article/origins-of-emperors-kings-kaisers-rex-and-dictators",
+    "permanent": true
+  },
+  {
+    "source": "/:year(\\d{4})/:month(\\d{2})/origins-of-emperors-kings-kaisers-rex-and-dictators/",
     "destination": "/article/origins-of-emperors-kings-kaisers-rex-and-dictators",
     "permanent": true
   },
@@ -205,7 +405,17 @@
     "permanent": true
   },
   {
+    "source": "/pedestrian-zebra-crossing-a-20th-century-solution-or-not/",
+    "destination": "/article/pedestrian-zebra-crossing-a-20th-century-solution-or-not",
+    "permanent": true
+  },
+  {
     "source": "/:year(\\d{4})/:month(\\d{2})/pedestrian-zebra-crossing-a-20th-century-solution-or-not",
+    "destination": "/article/pedestrian-zebra-crossing-a-20th-century-solution-or-not",
+    "permanent": true
+  },
+  {
+    "source": "/:year(\\d{4})/:month(\\d{2})/pedestrian-zebra-crossing-a-20th-century-solution-or-not/",
     "destination": "/article/pedestrian-zebra-crossing-a-20th-century-solution-or-not",
     "permanent": true
   },
@@ -215,7 +425,17 @@
     "permanent": true
   },
   {
+    "source": "/pretzels-are-a-northern-european-treat-right-think-again/",
+    "destination": "/article/pretzels-are-a-northern-european-treat-right-think-again",
+    "permanent": true
+  },
+  {
     "source": "/:year(\\d{4})/:month(\\d{2})/pretzels-are-a-northern-european-treat-right-think-again",
+    "destination": "/article/pretzels-are-a-northern-european-treat-right-think-again",
+    "permanent": true
+  },
+  {
+    "source": "/:year(\\d{4})/:month(\\d{2})/pretzels-are-a-northern-european-treat-right-think-again/",
     "destination": "/article/pretzels-are-a-northern-european-treat-right-think-again",
     "permanent": true
   },
@@ -225,7 +445,17 @@
     "permanent": true
   },
   {
+    "source": "/shining-light-on-dark-streets/",
+    "destination": "/article/shining-light-on-dark-streets",
+    "permanent": true
+  },
+  {
     "source": "/:year(\\d{4})/:month(\\d{2})/shining-light-on-dark-streets",
+    "destination": "/article/shining-light-on-dark-streets",
+    "permanent": true
+  },
+  {
+    "source": "/:year(\\d{4})/:month(\\d{2})/shining-light-on-dark-streets/",
     "destination": "/article/shining-light-on-dark-streets",
     "permanent": true
   },
@@ -235,7 +465,17 @@
     "permanent": true
   },
   {
+    "source": "/sleeping-beauty-waking-up-through-the-ages/",
+    "destination": "/article/sleeping-beauty-waking-up-through-the-ages",
+    "permanent": true
+  },
+  {
     "source": "/:year(\\d{4})/:month(\\d{2})/sleeping-beauty-waking-up-through-the-ages",
+    "destination": "/article/sleeping-beauty-waking-up-through-the-ages",
+    "permanent": true
+  },
+  {
+    "source": "/:year(\\d{4})/:month(\\d{2})/sleeping-beauty-waking-up-through-the-ages/",
     "destination": "/article/sleeping-beauty-waking-up-through-the-ages",
     "permanent": true
   },
@@ -245,7 +485,17 @@
     "permanent": true
   },
   {
+    "source": "/the-ancient-history-of-teeth-replacement/",
+    "destination": "/article/the-ancient-history-of-teeth-replacement",
+    "permanent": true
+  },
+  {
     "source": "/:year(\\d{4})/:month(\\d{2})/the-ancient-history-of-teeth-replacement",
+    "destination": "/article/the-ancient-history-of-teeth-replacement",
+    "permanent": true
+  },
+  {
+    "source": "/:year(\\d{4})/:month(\\d{2})/the-ancient-history-of-teeth-replacement/",
     "destination": "/article/the-ancient-history-of-teeth-replacement",
     "permanent": true
   },
@@ -255,7 +505,17 @@
     "permanent": true
   },
   {
+    "source": "/the-beginning-of-military-marching/",
+    "destination": "/article/the-beginning-of-military-marching",
+    "permanent": true
+  },
+  {
     "source": "/:year(\\d{4})/:month(\\d{2})/the-beginning-of-military-marching",
+    "destination": "/article/the-beginning-of-military-marching",
+    "permanent": true
+  },
+  {
+    "source": "/:year(\\d{4})/:month(\\d{2})/the-beginning-of-military-marching/",
     "destination": "/article/the-beginning-of-military-marching",
     "permanent": true
   },
@@ -265,7 +525,17 @@
     "permanent": true
   },
   {
+    "source": "/the-black-cat-from-egyptian-god-to-evil-omen/",
+    "destination": "/article/the-black-cat-from-egyptian-god-to-evil-omen",
+    "permanent": true
+  },
+  {
     "source": "/:year(\\d{4})/:month(\\d{2})/the-black-cat-from-egyptian-god-to-evil-omen",
+    "destination": "/article/the-black-cat-from-egyptian-god-to-evil-omen",
+    "permanent": true
+  },
+  {
+    "source": "/:year(\\d{4})/:month(\\d{2})/the-black-cat-from-egyptian-god-to-evil-omen/",
     "destination": "/article/the-black-cat-from-egyptian-god-to-evil-omen",
     "permanent": true
   },
@@ -275,7 +545,17 @@
     "permanent": true
   },
   {
+    "source": "/the-dark-origin-of-thumbs-up/",
+    "destination": "/article/the-dark-origin-of-thumbs-up",
+    "permanent": true
+  },
+  {
     "source": "/:year(\\d{4})/:month(\\d{2})/the-dark-origin-of-thumbs-up",
+    "destination": "/article/the-dark-origin-of-thumbs-up",
+    "permanent": true
+  },
+  {
+    "source": "/:year(\\d{4})/:month(\\d{2})/the-dark-origin-of-thumbs-up/",
     "destination": "/article/the-dark-origin-of-thumbs-up",
     "permanent": true
   },
@@ -285,7 +565,17 @@
     "permanent": true
   },
   {
+    "source": "/the-discovery-of-eureka/",
+    "destination": "/article/the-discovery-of-eureka",
+    "permanent": true
+  },
+  {
     "source": "/:year(\\d{4})/:month(\\d{2})/the-discovery-of-eureka",
+    "destination": "/article/the-discovery-of-eureka",
+    "permanent": true
+  },
+  {
+    "source": "/:year(\\d{4})/:month(\\d{2})/the-discovery-of-eureka/",
     "destination": "/article/the-discovery-of-eureka",
     "permanent": true
   },
@@ -295,7 +585,17 @@
     "permanent": true
   },
   {
+    "source": "/the-discovery-of-the-exclamation-eureka/",
+    "destination": "/article/the-discovery-of-eureka",
+    "permanent": true
+  },
+  {
     "source": "/:year(\\d{4})/:month(\\d{2})/the-discovery-of-the-exclamation-eureka",
+    "destination": "/article/the-discovery-of-eureka",
+    "permanent": true
+  },
+  {
+    "source": "/:year(\\d{4})/:month(\\d{2})/the-discovery-of-the-exclamation-eureka/",
     "destination": "/article/the-discovery-of-eureka",
     "permanent": true
   },
@@ -305,7 +605,17 @@
     "permanent": true
   },
   {
+    "source": "/the-first-and-oldest-republics/",
+    "destination": "/article/the-first-and-oldest-republics",
+    "permanent": true
+  },
+  {
     "source": "/:year(\\d{4})/:month(\\d{2})/the-first-and-oldest-republics",
+    "destination": "/article/the-first-and-oldest-republics",
+    "permanent": true
+  },
+  {
+    "source": "/:year(\\d{4})/:month(\\d{2})/the-first-and-oldest-republics/",
     "destination": "/article/the-first-and-oldest-republics",
     "permanent": true
   },
@@ -315,7 +625,17 @@
     "permanent": true
   },
   {
+    "source": "/the-long-simmering-history-of-hotpot-in-china/",
+    "destination": "/article/the-long-simmering-history-of-hotpot-in-china",
+    "permanent": true
+  },
+  {
     "source": "/:year(\\d{4})/:month(\\d{2})/the-long-simmering-history-of-hotpot-in-china",
+    "destination": "/article/the-long-simmering-history-of-hotpot-in-china",
+    "permanent": true
+  },
+  {
+    "source": "/:year(\\d{4})/:month(\\d{2})/the-long-simmering-history-of-hotpot-in-china/",
     "destination": "/article/the-long-simmering-history-of-hotpot-in-china",
     "permanent": true
   },
@@ -325,7 +645,17 @@
     "permanent": true
   },
   {
+    "source": "/the-lucky-protective-powers-of-the-horseshoe/",
+    "destination": "/article/the-lucky-protective-powers-of-the-horseshoe",
+    "permanent": true
+  },
+  {
     "source": "/:year(\\d{4})/:month(\\d{2})/the-lucky-protective-powers-of-the-horseshoe",
+    "destination": "/article/the-lucky-protective-powers-of-the-horseshoe",
+    "permanent": true
+  },
+  {
+    "source": "/:year(\\d{4})/:month(\\d{2})/the-lucky-protective-powers-of-the-horseshoe/",
     "destination": "/article/the-lucky-protective-powers-of-the-horseshoe",
     "permanent": true
   },
@@ -335,7 +665,17 @@
     "permanent": true
   },
   {
+    "source": "/the-misfortune-of-walking-under-a-ladder/",
+    "destination": "/article/the-misfortune-of-walking-under-a-ladder",
+    "permanent": true
+  },
+  {
     "source": "/:year(\\d{4})/:month(\\d{2})/the-misfortune-of-walking-under-a-ladder",
+    "destination": "/article/the-misfortune-of-walking-under-a-ladder",
+    "permanent": true
+  },
+  {
+    "source": "/:year(\\d{4})/:month(\\d{2})/the-misfortune-of-walking-under-a-ladder/",
     "destination": "/article/the-misfortune-of-walking-under-a-ladder",
     "permanent": true
   },
@@ -345,7 +685,17 @@
     "permanent": true
   },
   {
+    "source": "/the-origin-and-invention-of-paper/",
+    "destination": "/article/the-origin-and-invention-of-paper",
+    "permanent": true
+  },
+  {
     "source": "/:year(\\d{4})/:month(\\d{2})/the-origin-and-invention-of-paper",
+    "destination": "/article/the-origin-and-invention-of-paper",
+    "permanent": true
+  },
+  {
+    "source": "/:year(\\d{4})/:month(\\d{2})/the-origin-and-invention-of-paper/",
     "destination": "/article/the-origin-and-invention-of-paper",
     "permanent": true
   },
@@ -355,7 +705,17 @@
     "permanent": true
   },
   {
+    "source": "/the-origin-of-thumbs-up/",
+    "destination": "/article/the-dark-origin-of-thumbs-up",
+    "permanent": true
+  },
+  {
     "source": "/:year(\\d{4})/:month(\\d{2})/the-origin-of-thumbs-up",
+    "destination": "/article/the-dark-origin-of-thumbs-up",
+    "permanent": true
+  },
+  {
+    "source": "/:year(\\d{4})/:month(\\d{2})/the-origin-of-thumbs-up/",
     "destination": "/article/the-dark-origin-of-thumbs-up",
     "permanent": true
   },
@@ -365,7 +725,17 @@
     "permanent": true
   },
   {
+    "source": "/the-rebirth-of-chocolate-bunnies-and-easter-eggs/",
+    "destination": "/article/the-rebirth-of-chocolate-bunnies-and-easter-eggs",
+    "permanent": true
+  },
+  {
     "source": "/:year(\\d{4})/:month(\\d{2})/the-rebirth-of-chocolate-bunnies-and-easter-eggs",
+    "destination": "/article/the-rebirth-of-chocolate-bunnies-and-easter-eggs",
+    "permanent": true
+  },
+  {
+    "source": "/:year(\\d{4})/:month(\\d{2})/the-rebirth-of-chocolate-bunnies-and-easter-eggs/",
     "destination": "/article/the-rebirth-of-chocolate-bunnies-and-easter-eggs",
     "permanent": true
   },
@@ -375,7 +745,17 @@
     "permanent": true
   },
   {
+    "source": "/the-surprising-origin-of-deodorants/",
+    "destination": "/article/the-surprising-origin-of-deodorants",
+    "permanent": true
+  },
+  {
     "source": "/:year(\\d{4})/:month(\\d{2})/the-surprising-origin-of-deodorants",
+    "destination": "/article/the-surprising-origin-of-deodorants",
+    "permanent": true
+  },
+  {
+    "source": "/:year(\\d{4})/:month(\\d{2})/the-surprising-origin-of-deodorants/",
     "destination": "/article/the-surprising-origin-of-deodorants",
     "permanent": true
   },
@@ -385,7 +765,17 @@
     "permanent": true
   },
   {
+    "source": "/the-surprising-origin-of-jeans/",
+    "destination": "/article/the-surprising-origin-of-jeans",
+    "permanent": true
+  },
+  {
     "source": "/:year(\\d{4})/:month(\\d{2})/the-surprising-origin-of-jeans",
+    "destination": "/article/the-surprising-origin-of-jeans",
+    "permanent": true
+  },
+  {
+    "source": "/:year(\\d{4})/:month(\\d{2})/the-surprising-origin-of-jeans/",
     "destination": "/article/the-surprising-origin-of-jeans",
     "permanent": true
   },
@@ -395,7 +785,17 @@
     "permanent": true
   },
   {
+    "source": "/the-two-finger-flip/",
+    "destination": "/article/the-two-finger-flip",
+    "permanent": true
+  },
+  {
     "source": "/:year(\\d{4})/:month(\\d{2})/the-two-finger-flip",
+    "destination": "/article/the-two-finger-flip",
+    "permanent": true
+  },
+  {
+    "source": "/:year(\\d{4})/:month(\\d{2})/the-two-finger-flip/",
     "destination": "/article/the-two-finger-flip",
     "permanent": true
   },
@@ -405,7 +805,17 @@
     "permanent": true
   },
   {
+    "source": "/the-white-elephant-burden-gift/",
+    "destination": "/article/the-white-elephant-burden-gift",
+    "permanent": true
+  },
+  {
     "source": "/:year(\\d{4})/:month(\\d{2})/the-white-elephant-burden-gift",
+    "destination": "/article/the-white-elephant-burden-gift",
+    "permanent": true
+  },
+  {
+    "source": "/:year(\\d{4})/:month(\\d{2})/the-white-elephant-burden-gift/",
     "destination": "/article/the-white-elephant-burden-gift",
     "permanent": true
   },
@@ -415,7 +825,17 @@
     "permanent": true
   },
   {
+    "source": "/what-is-the-senate/",
+    "destination": "/article/what-is-the-senate",
+    "permanent": true
+  },
+  {
     "source": "/:year(\\d{4})/:month(\\d{2})/what-is-the-senate",
+    "destination": "/article/what-is-the-senate",
+    "permanent": true
+  },
+  {
+    "source": "/:year(\\d{4})/:month(\\d{2})/what-is-the-senate/",
     "destination": "/article/what-is-the-senate",
     "permanent": true
   },
@@ -425,7 +845,17 @@
     "permanent": true
   },
   {
+    "source": "/what-is-the-story-of-the-irish-shamrock/",
+    "destination": "/article/what-is-the-story-of-the-irish-shamrock",
+    "permanent": true
+  },
+  {
     "source": "/:year(\\d{4})/:month(\\d{2})/what-is-the-story-of-the-irish-shamrock",
+    "destination": "/article/what-is-the-story-of-the-irish-shamrock",
+    "permanent": true
+  },
+  {
+    "source": "/:year(\\d{4})/:month(\\d{2})/what-is-the-story-of-the-irish-shamrock/",
     "destination": "/article/what-is-the-story-of-the-irish-shamrock",
     "permanent": true
   },
@@ -435,7 +865,17 @@
     "permanent": true
   },
   {
+    "source": "/when-did-we-start-celebrating-a-day-for-women/",
+    "destination": "/article/when-did-we-start-celebrating-a-day-for-women",
+    "permanent": true
+  },
+  {
     "source": "/:year(\\d{4})/:month(\\d{2})/when-did-we-start-celebrating-a-day-for-women",
+    "destination": "/article/when-did-we-start-celebrating-a-day-for-women",
+    "permanent": true
+  },
+  {
+    "source": "/:year(\\d{4})/:month(\\d{2})/when-did-we-start-celebrating-a-day-for-women/",
     "destination": "/article/when-did-we-start-celebrating-a-day-for-women",
     "permanent": true
   },
@@ -445,7 +885,17 @@
     "permanent": true
   },
   {
+    "source": "/when-did-we-start-sitting-down-on-a-chair/",
+    "destination": "/article/when-did-we-start-sitting-down-on-a-chair",
+    "permanent": true
+  },
+  {
     "source": "/:year(\\d{4})/:month(\\d{2})/when-did-we-start-sitting-down-on-a-chair",
+    "destination": "/article/when-did-we-start-sitting-down-on-a-chair",
+    "permanent": true
+  },
+  {
+    "source": "/:year(\\d{4})/:month(\\d{2})/when-did-we-start-sitting-down-on-a-chair/",
     "destination": "/article/when-did-we-start-sitting-down-on-a-chair",
     "permanent": true
   },
@@ -455,7 +905,17 @@
     "permanent": true
   },
   {
+    "source": "/when-did-we-start-using-candles/",
+    "destination": "/article/when-did-we-start-using-candles",
+    "permanent": true
+  },
+  {
     "source": "/:year(\\d{4})/:month(\\d{2})/when-did-we-start-using-candles",
+    "destination": "/article/when-did-we-start-using-candles",
+    "permanent": true
+  },
+  {
+    "source": "/:year(\\d{4})/:month(\\d{2})/when-did-we-start-using-candles/",
     "destination": "/article/when-did-we-start-using-candles",
     "permanent": true
   },
@@ -465,7 +925,17 @@
     "permanent": true
   },
   {
+    "source": "/when-did-we-start-using-glass-windows/",
+    "destination": "/article/when-did-we-start-using-glass-windows",
+    "permanent": true
+  },
+  {
     "source": "/:year(\\d{4})/:month(\\d{2})/when-did-we-start-using-glass-windows",
+    "destination": "/article/when-did-we-start-using-glass-windows",
+    "permanent": true
+  },
+  {
+    "source": "/:year(\\d{4})/:month(\\d{2})/when-did-we-start-using-glass-windows/",
     "destination": "/article/when-did-we-start-using-glass-windows",
     "permanent": true
   },
@@ -475,7 +945,17 @@
     "permanent": true
   },
   {
+    "source": "/when-did-we-start-wearing-medical-masks/",
+    "destination": "/article/when-did-we-start-wearing-medical-masks",
+    "permanent": true
+  },
+  {
     "source": "/:year(\\d{4})/:month(\\d{2})/when-did-we-start-wearing-medical-masks",
+    "destination": "/article/when-did-we-start-wearing-medical-masks",
+    "permanent": true
+  },
+  {
+    "source": "/:year(\\d{4})/:month(\\d{2})/when-did-we-start-wearing-medical-masks/",
     "destination": "/article/when-did-we-start-wearing-medical-masks",
     "permanent": true
   },
@@ -485,7 +965,17 @@
     "permanent": true
   },
   {
+    "source": "/when-were-fizzy-drinks-invented/",
+    "destination": "/article/when-were-fizzy-drinks-invented",
+    "permanent": true
+  },
+  {
     "source": "/:year(\\d{4})/:month(\\d{2})/when-were-fizzy-drinks-invented",
+    "destination": "/article/when-were-fizzy-drinks-invented",
+    "permanent": true
+  },
+  {
+    "source": "/:year(\\d{4})/:month(\\d{2})/when-were-fizzy-drinks-invented/",
     "destination": "/article/when-were-fizzy-drinks-invented",
     "permanent": true
   },
@@ -495,7 +985,17 @@
     "permanent": true
   },
   {
+    "source": "/when-were-the-first-eyeglasses-invented/",
+    "destination": "/article/when-were-the-first-eyeglasses-invented",
+    "permanent": true
+  },
+  {
     "source": "/:year(\\d{4})/:month(\\d{2})/when-were-the-first-eyeglasses-invented",
+    "destination": "/article/when-were-the-first-eyeglasses-invented",
+    "permanent": true
+  },
+  {
+    "source": "/:year(\\d{4})/:month(\\d{2})/when-were-the-first-eyeglasses-invented/",
     "destination": "/article/when-were-the-first-eyeglasses-invented",
     "permanent": true
   },
@@ -505,7 +1005,17 @@
     "permanent": true
   },
   {
+    "source": "/where-and-when-were-pants-invented/",
+    "destination": "/article/where-and-when-were-pants-invented",
+    "permanent": true
+  },
+  {
     "source": "/:year(\\d{4})/:month(\\d{2})/where-and-when-were-pants-invented",
+    "destination": "/article/where-and-when-were-pants-invented",
+    "permanent": true
+  },
+  {
+    "source": "/:year(\\d{4})/:month(\\d{2})/where-and-when-were-pants-invented/",
     "destination": "/article/where-and-when-were-pants-invented",
     "permanent": true
   },
@@ -515,7 +1025,17 @@
     "permanent": true
   },
   {
+    "source": "/where-do-french-fries-come-from/",
+    "destination": "/article/where-do-french-fries-come-from",
+    "permanent": true
+  },
+  {
     "source": "/:year(\\d{4})/:month(\\d{2})/where-do-french-fries-come-from",
+    "destination": "/article/where-do-french-fries-come-from",
+    "permanent": true
+  },
+  {
+    "source": "/:year(\\d{4})/:month(\\d{2})/where-do-french-fries-come-from/",
     "destination": "/article/where-do-french-fries-come-from",
     "permanent": true
   },
@@ -525,7 +1045,17 @@
     "permanent": true
   },
   {
+    "source": "/where-do-knights-come-from/",
+    "destination": "/article/where-do-knights-come-from",
+    "permanent": true
+  },
+  {
     "source": "/:year(\\d{4})/:month(\\d{2})/where-do-knights-come-from",
+    "destination": "/article/where-do-knights-come-from",
+    "permanent": true
+  },
+  {
+    "source": "/:year(\\d{4})/:month(\\d{2})/where-do-knights-come-from/",
     "destination": "/article/where-do-knights-come-from",
     "permanent": true
   },
@@ -535,7 +1065,17 @@
     "permanent": true
   },
   {
+    "source": "/where-do-spaghetti-come-from-no-not-china/",
+    "destination": "/article/where-do-spaghetti-come-from-no-not-china",
+    "permanent": true
+  },
+  {
     "source": "/:year(\\d{4})/:month(\\d{2})/where-do-spaghetti-come-from-no-not-china",
+    "destination": "/article/where-do-spaghetti-come-from-no-not-china",
+    "permanent": true
+  },
+  {
+    "source": "/:year(\\d{4})/:month(\\d{2})/where-do-spaghetti-come-from-no-not-china/",
     "destination": "/article/where-do-spaghetti-come-from-no-not-china",
     "permanent": true
   },
@@ -545,7 +1085,17 @@
     "permanent": true
   },
   {
+    "source": "/where-do-wedding-rings-come-from/",
+    "destination": "/article/where-do-wedding-rings-come-from",
+    "permanent": true
+  },
+  {
     "source": "/:year(\\d{4})/:month(\\d{2})/where-do-wedding-rings-come-from",
+    "destination": "/article/where-do-wedding-rings-come-from",
+    "permanent": true
+  },
+  {
+    "source": "/:year(\\d{4})/:month(\\d{2})/where-do-wedding-rings-come-from/",
     "destination": "/article/where-do-wedding-rings-come-from",
     "permanent": true
   },
@@ -555,7 +1105,17 @@
     "permanent": true
   },
   {
+    "source": "/where-does-the-violin-come-from/",
+    "destination": "/article/where-does-the-violin-come-from",
+    "permanent": true
+  },
+  {
     "source": "/:year(\\d{4})/:month(\\d{2})/where-does-the-violin-come-from",
+    "destination": "/article/where-does-the-violin-come-from",
+    "permanent": true
+  },
+  {
+    "source": "/:year(\\d{4})/:month(\\d{2})/where-does-the-violin-come-from/",
     "destination": "/article/where-does-the-violin-come-from",
     "permanent": true
   },
@@ -565,7 +1125,17 @@
     "permanent": true
   },
   {
+    "source": "/where-does-the-word-amen-come-from/",
+    "destination": "/article/where-does-the-word-amen-come-from",
+    "permanent": true
+  },
+  {
     "source": "/:year(\\d{4})/:month(\\d{2})/where-does-the-word-amen-come-from",
+    "destination": "/article/where-does-the-word-amen-come-from",
+    "permanent": true
+  },
+  {
+    "source": "/:year(\\d{4})/:month(\\d{2})/where-does-the-word-amen-come-from/",
     "destination": "/article/where-does-the-word-amen-come-from",
     "permanent": true
   },
@@ -575,7 +1145,17 @@
     "permanent": true
   },
   {
+    "source": "/who-discovered-pi-3-141592/",
+    "destination": "/article/who-discovered-pi-3-141592",
+    "permanent": true
+  },
+  {
     "source": "/:year(\\d{4})/:month(\\d{2})/who-discovered-pi-3-141592",
+    "destination": "/article/who-discovered-pi-3-141592",
+    "permanent": true
+  },
+  {
+    "source": "/:year(\\d{4})/:month(\\d{2})/who-discovered-pi-3-141592/",
     "destination": "/article/who-discovered-pi-3-141592",
     "permanent": true
   },
@@ -585,7 +1165,17 @@
     "permanent": true
   },
   {
+    "source": "/who-invented-the-first-sword/",
+    "destination": "/article/who-invented-the-first-sword",
+    "permanent": true
+  },
+  {
     "source": "/:year(\\d{4})/:month(\\d{2})/who-invented-the-first-sword",
+    "destination": "/article/who-invented-the-first-sword",
+    "permanent": true
+  },
+  {
+    "source": "/:year(\\d{4})/:month(\\d{2})/who-invented-the-first-sword/",
     "destination": "/article/who-invented-the-first-sword",
     "permanent": true
   },
@@ -595,7 +1185,17 @@
     "permanent": true
   },
   {
+    "source": "/who-invented-the-fork/",
+    "destination": "/article/who-invented-the-fork",
+    "permanent": true
+  },
+  {
     "source": "/:year(\\d{4})/:month(\\d{2})/who-invented-the-fork",
+    "destination": "/article/who-invented-the-fork",
+    "permanent": true
+  },
+  {
+    "source": "/:year(\\d{4})/:month(\\d{2})/who-invented-the-fork/",
     "destination": "/article/who-invented-the-fork",
     "permanent": true
   },
@@ -605,7 +1205,17 @@
     "permanent": true
   },
   {
+    "source": "/who-invented-the-wheel-5500-years-ago/",
+    "destination": "/article/who-invented-the-wheel-5500-years-ago",
+    "permanent": true
+  },
+  {
     "source": "/:year(\\d{4})/:month(\\d{2})/who-invented-the-wheel-5500-years-ago",
+    "destination": "/article/who-invented-the-wheel-5500-years-ago",
+    "permanent": true
+  },
+  {
+    "source": "/:year(\\d{4})/:month(\\d{2})/who-invented-the-wheel-5500-years-ago/",
     "destination": "/article/who-invented-the-wheel-5500-years-ago",
     "permanent": true
   },
@@ -615,7 +1225,17 @@
     "permanent": true
   },
   {
+    "source": "/why-do-barbershop-display-white-red-and-blue-poles/",
+    "destination": "/article/why-do-barbershop-display-white-red-and-blue-poles",
+    "permanent": true
+  },
+  {
     "source": "/:year(\\d{4})/:month(\\d{2})/why-do-barbershop-display-white-red-and-blue-poles",
+    "destination": "/article/why-do-barbershop-display-white-red-and-blue-poles",
+    "permanent": true
+  },
+  {
+    "source": "/:year(\\d{4})/:month(\\d{2})/why-do-barbershop-display-white-red-and-blue-poles/",
     "destination": "/article/why-do-barbershop-display-white-red-and-blue-poles",
     "permanent": true
   },
@@ -625,7 +1245,17 @@
     "permanent": true
   },
   {
+    "source": "/why-do-bridesmaids-all-dress-the-same/",
+    "destination": "/article/why-do-bridesmaids-all-dress-the-same",
+    "permanent": true
+  },
+  {
     "source": "/:year(\\d{4})/:month(\\d{2})/why-do-bridesmaids-all-dress-the-same",
+    "destination": "/article/why-do-bridesmaids-all-dress-the-same",
+    "permanent": true
+  },
+  {
+    "source": "/:year(\\d{4})/:month(\\d{2})/why-do-bridesmaids-all-dress-the-same/",
     "destination": "/article/why-do-bridesmaids-all-dress-the-same",
     "permanent": true
   },
@@ -635,7 +1265,17 @@
     "permanent": true
   },
   {
+    "source": "/why-do-graduates-dress-like-medieval-clerics/",
+    "destination": "/article/why-do-graduates-dress-like-medieval-clerics",
+    "permanent": true
+  },
+  {
     "source": "/:year(\\d{4})/:month(\\d{2})/why-do-graduates-dress-like-medieval-clerics",
+    "destination": "/article/why-do-graduates-dress-like-medieval-clerics",
+    "permanent": true
+  },
+  {
+    "source": "/:year(\\d{4})/:month(\\d{2})/why-do-graduates-dress-like-medieval-clerics/",
     "destination": "/article/why-do-graduates-dress-like-medieval-clerics",
     "permanent": true
   },
@@ -645,7 +1285,17 @@
     "permanent": true
   },
   {
+    "source": "/why-do-some-countries-drive-on-the-left/",
+    "destination": "/article/why-do-some-countries-drive-on-the-left",
+    "permanent": true
+  },
+  {
     "source": "/:year(\\d{4})/:month(\\d{2})/why-do-some-countries-drive-on-the-left",
+    "destination": "/article/why-do-some-countries-drive-on-the-left",
+    "permanent": true
+  },
+  {
+    "source": "/:year(\\d{4})/:month(\\d{2})/why-do-some-countries-drive-on-the-left/",
     "destination": "/article/why-do-some-countries-drive-on-the-left",
     "permanent": true
   },
@@ -655,7 +1305,17 @@
     "permanent": true
   },
   {
+    "source": "/why-do-we-call-it-a-caesarian-section/",
+    "destination": "/article/why-do-we-call-it-a-caesarian-section",
+    "permanent": true
+  },
+  {
     "source": "/:year(\\d{4})/:month(\\d{2})/why-do-we-call-it-a-caesarian-section",
+    "destination": "/article/why-do-we-call-it-a-caesarian-section",
+    "permanent": true
+  },
+  {
+    "source": "/:year(\\d{4})/:month(\\d{2})/why-do-we-call-it-a-caesarian-section/",
     "destination": "/article/why-do-we-call-it-a-caesarian-section",
     "permanent": true
   },
@@ -665,7 +1325,17 @@
     "permanent": true
   },
   {
+    "source": "/why-do-we-compare-apples-to-oranges/",
+    "destination": "/article/why-do-we-compare-apples-to-oranges",
+    "permanent": true
+  },
+  {
     "source": "/:year(\\d{4})/:month(\\d{2})/why-do-we-compare-apples-to-oranges",
+    "destination": "/article/why-do-we-compare-apples-to-oranges",
+    "permanent": true
+  },
+  {
+    "source": "/:year(\\d{4})/:month(\\d{2})/why-do-we-compare-apples-to-oranges/",
     "destination": "/article/why-do-we-compare-apples-to-oranges",
     "permanent": true
   },
@@ -675,7 +1345,17 @@
     "permanent": true
   },
   {
+    "source": "/why-does-an-hour-have-60-minutes/",
+    "destination": "/article/why-does-an-hour-have-60-minutes",
+    "permanent": true
+  },
+  {
     "source": "/:year(\\d{4})/:month(\\d{2})/why-does-an-hour-have-60-minutes",
+    "destination": "/article/why-does-an-hour-have-60-minutes",
+    "permanent": true
+  },
+  {
+    "source": "/:year(\\d{4})/:month(\\d{2})/why-does-an-hour-have-60-minutes/",
     "destination": "/article/why-does-an-hour-have-60-minutes",
     "permanent": true
   },
@@ -685,7 +1365,17 @@
     "permanent": true
   },
   {
+    "source": "/why-does-it-cost-an-arm-and-a-leg/",
+    "destination": "/article/why-does-it-cost-an-arm-and-a-leg",
+    "permanent": true
+  },
+  {
     "source": "/:year(\\d{4})/:month(\\d{2})/why-does-it-cost-an-arm-and-a-leg",
+    "destination": "/article/why-does-it-cost-an-arm-and-a-leg",
+    "permanent": true
+  },
+  {
+    "source": "/:year(\\d{4})/:month(\\d{2})/why-does-it-cost-an-arm-and-a-leg/",
     "destination": "/article/why-does-it-cost-an-arm-and-a-leg",
     "permanent": true
   },
@@ -695,7 +1385,17 @@
     "permanent": true
   },
   {
+    "source": "/why-does-it-costs-an-arm-and-a-leg/",
+    "destination": "/article/why-does-it-cost-an-arm-and-a-leg",
+    "permanent": true
+  },
+  {
     "source": "/:year(\\d{4})/:month(\\d{2})/why-does-it-costs-an-arm-and-a-leg",
+    "destination": "/article/why-does-it-cost-an-arm-and-a-leg",
+    "permanent": true
+  },
+  {
+    "source": "/:year(\\d{4})/:month(\\d{2})/why-does-it-costs-an-arm-and-a-leg/",
     "destination": "/article/why-does-it-cost-an-arm-and-a-leg",
     "permanent": true
   },
@@ -705,7 +1405,17 @@
     "permanent": true
   },
   {
+    "source": "/why-wish-someone-a-broken-leg/",
+    "destination": "/article/why-wish-someone-a-broken-leg",
+    "permanent": true
+  },
+  {
     "source": "/:year(\\d{4})/:month(\\d{2})/why-wish-someone-a-broken-leg",
+    "destination": "/article/why-wish-someone-a-broken-leg",
+    "permanent": true
+  },
+  {
+    "source": "/:year(\\d{4})/:month(\\d{2})/why-wish-someone-a-broken-leg/",
     "destination": "/article/why-wish-someone-a-broken-leg",
     "permanent": true
   },
@@ -715,7 +1425,17 @@
     "permanent": true
   },
   {
+    "source": "/your-cappuccino-is-named-after-a-monks-robe/",
+    "destination": "/article/your-cappuccino-is-named-after-a-monks-robe",
+    "permanent": true
+  },
+  {
     "source": "/:year(\\d{4})/:month(\\d{2})/your-cappuccino-is-named-after-a-monks-robe",
+    "destination": "/article/your-cappuccino-is-named-after-a-monks-robe",
+    "permanent": true
+  },
+  {
+    "source": "/:year(\\d{4})/:month(\\d{2})/your-cappuccino-is-named-after-a-monks-robe/",
     "destination": "/article/your-cappuccino-is-named-after-a-monks-robe",
     "permanent": true
   }
