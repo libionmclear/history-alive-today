@@ -66,13 +66,16 @@ function fmtAgo(ms: number | undefined | null, todayKey: string): string {
 function fmtDuration(ms: number): string {
   if (!ms || ms < 1000) return '—';
   const totalSec = Math.round(ms / 1000);
-  const m = Math.floor(totalSec / 60);
+  const h = Math.floor(totalSec / 3600);
+  const m = Math.floor((totalSec % 3600) / 60);
   const s = totalSec % 60;
+  if (h > 0) return `${h}h ${m}m`;
   return m > 0 ? `${m}m ${s}s` : `${s}s`;
 }
 
 function pct(value: number, total: number): string {
-  if (!total || !value) return '0%';
+  if (!total) return '—'; // nothing measured yet, so a 0% would be a lie
+  if (!value) return '0%';
   const p = (value / total) * 100;
   return `${p >= 10 ? Math.round(p) : p.toFixed(1)}%`;
 }
@@ -91,6 +94,24 @@ function flag(code: string): string {
   const A = 0x1f1e6;
   const cc = code.toUpperCase();
   return String.fromCodePoint(A + (cc.charCodeAt(0) - 65), A + (cc.charCodeAt(1) - 65));
+}
+
+// Vercel sends ISO 3166-1 alpha-2 codes; turn them into readable names.
+const REGION_NAMES = (() => {
+  try {
+    return new Intl.DisplayNames(['en'], { type: 'region' });
+  } catch {
+    return null;
+  }
+})();
+
+function countryName(code: string): string {
+  if (!/^[A-Z]{2}$/i.test(code)) return code;
+  try {
+    return REGION_NAMES?.of(code.toUpperCase()) ?? code;
+  } catch {
+    return code; // not a real region code (e.g. Tor exit nodes report T1)
+  }
 }
 
 function sortedEntries(rec: Record<string, number>): [string, number][] {
@@ -126,37 +147,78 @@ function Bar({ value, max, color = GOLD }: { value: number; max: number; color?:
   );
 }
 
-function StatCard({ label, value, sub }: { label: string; value: string; sub?: string }) {
+function StatCard({
+  label,
+  value,
+  sub,
+  since,
+}: {
+  label: string;
+  value: string;
+  sub?: string;
+  /** Already-formatted date or range this number covers. */
+  since?: string | null;
+}) {
   return (
     <div className="bg-white rounded-xl shadow-sm p-6">
       <p className="text-xs uppercase tracking-widest text-[#aaaaaa] font-semibold">{label}</p>
       <p className="text-3xl font-bold text-[#333333] mt-2">{value}</p>
       {sub && <p className="text-sm text-[#888888] mt-1">{sub}</p>}
+      <p className="text-xs text-[#bbb] mt-2">
+        {!since
+          ? 'from the next visit onwards'
+          : since.includes('–') // a date range reads wrong with a "since" in front
+            ? since
+            : `since ${since}`}
+      </p>
     </div>
   );
 }
 
+/**
+ * Every panel states the date its numbers start from. The dimensions differ:
+ * article counts go back to the original analytics, while anything visitor- or
+ * page-level only exists from the deploy that started recording it.
+ */
 function Section({
   title,
   hint,
+  since,
   children,
 }: {
   title: string;
   hint?: string;
+  since?: string | null;
   children: React.ReactNode;
 }) {
+  const sinceLabel = since ? `Since ${since}` : 'Nothing recorded yet';
   return (
     <section className="bg-white rounded-xl shadow-sm p-6">
       <h2 className="text-lg font-bold text-[#333333] mb-1">{title}</h2>
-      {hint && <p className="text-sm text-[#888888] mb-5">{hint}</p>}
-      {!hint && <div className="mb-5" />}
+      <p className="text-sm text-[#888888] mb-5">
+        {hint ? `${hint} · ` : ''}
+        <span className="text-[#aaa]">{sinceLabel}</span>
+      </p>
       {children}
     </section>
   );
 }
 
-function Empty({ children }: { children: React.ReactNode }) {
-  return <p className="text-sm text-[#aaa]">{children}</p>;
+/**
+ * Shown when a panel has no rows. Says when collection started rather than
+ * leaving a bare zero, which reads like a bug.
+ */
+function Empty({ since, children }: { since?: string | null; children: React.ReactNode }) {
+  return (
+    <div className="text-sm text-[#aaa]">
+      <p>{children}</p>
+      <p className="mt-1">
+        {since
+          ? `Collecting since ${since} — nothing to show yet.`
+          : 'Collection starts with the first visit after this deploy.'}
+      </p>
+    </div>
+  );
 }
 
 // ---------------------------------------------------------------------------
@@ -214,14 +276,29 @@ export default async function AdminPage() {
   const totalPageViews = sumValues(stats.pages);
   const maxPage = pageEntries[0]?.[1] ?? 0;
 
-  // --- Visitors & sessions -------------------------------------------------
-  // The depth histogram counts each session once, in the bucket it reached.
+  // --- Visits --------------------------------------------------------------
+  // Each histogram counts a visit once, in the bucket it finally reached.
   const depthEntries = DEPTH_BUCKETS.map(
     (bucket) => [bucket, Math.max(0, Number(stats.depth[bucket] ?? 0))] as [string, number],
   );
   const totalSessions = depthEntries.reduce((s, [, v]) => s + v, 0);
   const maxDepth = Math.max(0, ...depthEntries.map(([, v]) => v));
   const singlePageSessions = depthEntries.find(([b]) => b === '1')?.[1] ?? 0;
+
+  // Articles per visit. Visits that read nothing never enter the histogram, so
+  // the "0" bucket is whatever is left over from the total.
+  const readEntries = DEPTH_BUCKETS.map(
+    (bucket) => [bucket, Math.max(0, Number(stats.articleDepth[bucket] ?? 0))] as [string, number],
+  );
+  const visitsWithArticles = readEntries.reduce((s, [, v]) => s + v, 0);
+  const articleEntries: [string, number][] = [
+    ['0', Math.max(0, totalSessions - visitsWithArticles)],
+    ...readEntries,
+  ];
+  const maxArticleDepth = Math.max(0, ...articleEntries.map(([, v]) => v));
+
+  // Time per visit: every page's measured time, divided across the visits.
+  const avgVisitTime = totalSessions > 0 ? stats.visitTimeTotal / totalSessions : 0;
 
   // --- Dwell ---------------------------------------------------------------
   const perArticleDwell = Object.keys(stats.dwellTotal).map((slug) => {
@@ -253,6 +330,9 @@ export default async function AdminPage() {
   // "Today" comes from the stats window rather than the clock, so rendering
   // stays pure and the dates on the page all agree with the chart.
   const todayKey = stats.window[stats.window.length - 1];
+  // Pre-formatted for the panels, so every number can state its own start date.
+  const articlesDate = articlesSince ? fmtDay(articlesSince) : null;
+  const sitewideDate = sitewideSince ? fmtDay(sitewideSince) : null;
   const trackedDays = trackingSince
     ? Math.max(
         1,
@@ -296,6 +376,20 @@ export default async function AdminPage() {
               ? `tracking since ${fmtDay(trackingSince)} (${plural(trackedDays, 'day')})`
               : 'no data collected yet'}
           </p>
+          <p className="text-sm text-[#888888] mt-3 max-w-3xl leading-relaxed">
+            Each panel below says what date its numbers start from, because they do not
+            all start together.{' '}
+            <span className="text-[#555]">
+              Article views, referrers, countries and reading time run from{' '}
+              {articlesSince ? fmtDay(articlesSince) : 'the first article view'}.
+            </span>{' '}
+            <span className="text-[#555]">
+              Visitors, visits, per-page counts and time on site were never recorded before
+              and only exist from{' '}
+              {sitewideSince ? fmtDay(sitewideSince) : 'the first visit after this deploy'} —
+              so they read low or empty until traffic builds up.
+            </span>
+          </p>
         </div>
 
         {/* Traffic */}
@@ -306,17 +400,20 @@ export default async function AdminPage() {
           <StatCard
             label="Total page views"
             value={totalPageViews.toLocaleString()}
-            sub={sitewideSince ? `every page, since ${fmtDay(sitewideSince)}` : 'starts at next deploy'}
+            sub="every page, articles included"
+            since={sitewideDate}
           />
           <StatCard
             label="Article views"
             value={totalArticleViews.toLocaleString()}
-            sub={articlesSince ? `since ${fmtDay(articlesSince)}` : 'no views yet'}
+            sub="article pages only"
+            since={articlesDate}
           />
           <StatCard
             label={`Views (${WINDOW_DAYS} days)`}
             value={windowViews.toLocaleString()}
-            sub={rangeLabel}
+            sub={`${windowSessions.toLocaleString()} visits in the window`}
+            since={rangeLabel}
           />
           <StatCard
             label="Articles tracked"
@@ -326,6 +423,7 @@ export default async function AdminPage() {
                 ? `${neverViewed.length} never opened yet`
                 : 'every article has been read'
             }
+            since={articlesDate}
           />
         </div>
 
@@ -333,26 +431,60 @@ export default async function AdminPage() {
         <h2 className="text-xs uppercase tracking-widest text-[#aaaaaa] font-semibold mb-3">
           Audience
         </h2>
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-10">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
           <StatCard
             label="Unique visitors"
             value={stats.visitors.toLocaleString()}
             sub={`${windowVisitors.toLocaleString()} in the last ${WINDOW_DAYS} days`}
+            since={sitewideDate}
           />
           <StatCard
-            label="Pages per visitor"
-            value={ratio(totalPageViews, stats.visitors)}
-            sub={`${ratio(totalSessions, stats.visitors)} visits each`}
+            label="Visits"
+            value={totalSessions.toLocaleString()}
+            sub={`${ratio(totalSessions, stats.visitors)} per visitor · ${windowSessions.toLocaleString()} in ${WINDOW_DAYS}d`}
+            since={sitewideDate}
           />
           <StatCard
             label="Pages per visit"
             value={ratio(totalPageViews, totalSessions)}
-            sub={`${totalSessions.toLocaleString()} visits · ${windowSessions.toLocaleString()} in ${WINDOW_DAYS}d`}
+            sub={`${ratio(totalPageViews, stats.visitors)} pages per visitor`}
+            since={sitewideDate}
           />
           <StatCard
-            label="Avg. time on page"
+            label="Articles per visit"
+            value={ratio(totalArticleViews, totalSessions)}
+            sub={
+              totalSessions > 0
+                ? `${pct(visitsWithArticles, totalSessions)} of visits read one`
+                : 'no visits yet'
+            }
+            since={sitewideDate}
+          />
+        </div>
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-10">
+          <StatCard
+            label="Time per visit"
+            value={fmtDuration(avgVisitTime)}
+            sub={`across ${plural(stats.pageDwellCount, 'page')} measured`}
+            since={sitewideDate}
+          />
+          <StatCard
+            label="Avg. time on article"
             value={fmtDuration(avgDwellAll)}
             sub={`${dwellCountAll.toLocaleString()} reads measured`}
+            since={articlesDate}
+          />
+          <StatCard
+            label="One-page visits"
+            value={pct(singlePageSessions, totalSessions)}
+            sub={`${singlePageSessions.toLocaleString()} of ${totalSessions.toLocaleString()} left after one page`}
+            since={sitewideDate}
+          />
+          <StatCard
+            label="Total time on site"
+            value={fmtDuration(stats.visitTimeTotal)}
+            sub="every page, added up"
+            since={sitewideDate}
           />
         </div>
 
@@ -415,9 +547,9 @@ export default async function AdminPage() {
 
         <div className="grid lg:grid-cols-2 gap-8">
           {/* Most viewed */}
-          <Section title="Most viewed stories" hint={`All time${articlesSince ? ` · since ${fmtDay(articlesSince)}` : ''}`}>
+          <Section title="Most viewed stories" hint="Article pages, all time" since={articlesDate}>
             {viewEntries.length === 0 ? (
-              <Empty>No views yet.</Empty>
+              <Empty since={articlesDate}>No article views recorded.</Empty>
             ) : (
               <ul className="space-y-4">
                 {viewEntries.slice(0, 15).map(([slug, count], i) => (
@@ -452,11 +584,11 @@ export default async function AdminPage() {
           <Section
             title="Most visited pages"
             hint="Every page, including home, categories and search"
+            since={sitewideDate}
           >
             {pageEntries.length === 0 ? (
-              <Empty>
-                Site-wide page tracking starts with the next deploy — until then only article
-                pages are counted.
+              <Empty since={sitewideDate}>
+                Per-page counts were never recorded before — only article totals were.
               </Empty>
             ) : (
               <ul className="space-y-4">
@@ -485,9 +617,10 @@ export default async function AdminPage() {
           <Section
             title="Pages per visit"
             hint="How many pages one visitor opens before leaving (a visit ends after 30 idle minutes)"
+            since={sitewideDate}
           >
             {totalSessions === 0 ? (
-              <Empty>No visits recorded yet — this starts with the next deploy.</Empty>
+              <Empty since={sitewideDate}>Visits were never grouped before this deploy.</Empty>
             ) : (
               <>
                 <ul className="space-y-4">
@@ -510,16 +643,56 @@ export default async function AdminPage() {
                 </ul>
                 <p className="text-sm text-[#888888] mt-5">
                   {pct(singlePageSessions, totalSessions)} of visits stop at one page, and the
-                  average visit covers {ratio(totalPageViews, totalSessions)} pages.
+                  average visit covers {ratio(totalPageViews, totalSessions)} pages in{' '}
+                  {fmtDuration(avgVisitTime)}.
+                </p>
+              </>
+            )}
+          </Section>
+
+          {/* Articles read per visit */}
+          <Section
+            title="Articles per visit"
+            hint="How many stories one visitor actually reads before leaving"
+            since={sitewideDate}
+          >
+            {totalSessions === 0 ? (
+              <Empty since={sitewideDate}>Visits were never grouped before this deploy.</Empty>
+            ) : (
+              <>
+                <ul className="space-y-4">
+                  {articleEntries.map(([bucket, count]) => (
+                    <li key={bucket}>
+                      <div className="flex items-baseline justify-between gap-3 mb-1">
+                        <span className="text-sm text-[#333]">
+                          {bucket} {bucket === '1' ? 'article' : 'articles'}
+                          {bucket === '0' && (
+                            <span className="text-[#bbb] ml-2">browsed without reading</span>
+                          )}
+                        </span>
+                        <span className="text-sm font-semibold text-[#333] shrink-0">
+                          {count.toLocaleString()}{' '}
+                          <span className="text-[#bbb] font-normal">
+                            ({pct(count, totalSessions)})
+                          </span>
+                        </span>
+                      </div>
+                      <Bar value={count} max={maxArticleDepth} color={SLATE} />
+                    </li>
+                  ))}
+                </ul>
+                <p className="text-sm text-[#888888] mt-5">
+                  {pct(visitsWithArticles, totalSessions)} of visits read at least one article,
+                  averaging {ratio(totalArticleViews, totalSessions)} per visit.
                 </p>
               </>
             )}
           </Section>
 
           {/* Engagement / dwell */}
-          <Section title="Most engaging stories" hint="Average time on page, with reads measured">
+          <Section title="Most engaging stories" hint="Average time on page, with reads measured" since={articlesDate}>
             {dwellByAvg.length === 0 ? (
-              <Empty>No engagement data yet.</Empty>
+              <Empty since={articlesDate}>No reading time measured yet.</Empty>
             ) : (
               <ul className="space-y-3">
                 {dwellByAvg.slice(0, 15).map(({ slug, avg, count }) => (
@@ -541,9 +714,9 @@ export default async function AdminPage() {
           </Section>
 
           {/* Referrers */}
-          <Section title="Where people come from" hint="Counted once per entry, not once per page">
+          <Section title="Where people come from" hint="Counted once per entry, not once per page" since={articlesDate}>
             {referrers.length === 0 ? (
-              <Empty>No referrer data yet.</Empty>
+              <Empty since={articlesDate}>No referrers recorded.</Empty>
             ) : (
               <ul className="space-y-4">
                 {referrers.slice(0, 12).map(([source, count]) => (
@@ -565,17 +738,18 @@ export default async function AdminPage() {
           </Section>
 
           {/* Countries */}
-          <Section title="Top countries" hint="From Vercel geo headers — production only">
+          <Section title="Top countries" hint="From Vercel geo headers — production only" since={articlesDate}>
             {countries.length === 0 ? (
-              <Empty>No country data yet.</Empty>
+              <Empty since={articlesDate}>No country data recorded.</Empty>
             ) : (
               <ul className="space-y-4">
                 {countries.slice(0, 12).map(([code, count]) => (
                   <li key={code}>
                     <div className="flex items-baseline justify-between gap-3 mb-1">
-                      <span className="text-sm text-[#333]">
+                      <span className="text-sm text-[#333] line-clamp-1">
                         <span className="mr-2">{flag(code)}</span>
-                        {code}
+                        {countryName(code)}
+                        <span className="text-[#bbb] ml-2">{code}</span>
                       </span>
                       <span className="text-sm font-semibold text-[#333] shrink-0">
                         {count.toLocaleString()}{' '}
@@ -597,7 +771,7 @@ export default async function AdminPage() {
             hint={`${neverViewed.length} of ${allArticles.length} articles have no recorded view`}
           >
             {neverViewed.length === 0 ? (
-              <Empty>Every article has been read at least once.</Empty>
+              <Empty since={articlesDate}>Every article has been read at least once.</Empty>
             ) : (
               <ul className="space-y-3">
                 {neverViewed.slice(0, 15).map((a) => (

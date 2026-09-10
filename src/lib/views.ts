@@ -24,8 +24,12 @@ const K_ART_LAST = 'article-last-seen'; // hash: slug -> ms of most recent view
 const K_VISITORS = 'visitors:all'; // HyperLogLog of every visitor id ever seen
 const K_VISITORS_DAY = (day: string) => `visitors:day:${day}`; // HLL per day
 const K_SESSION = (vid: string) => `session:${vid}`; // page depth, sliding TTL
+const K_ART_SESSION = (vid: string) => `session:art:${vid}`; // article depth, same TTL
 const K_SESSIONS_DAILY = 'sessions:daily'; // hash: YYYY-MM-DD -> sessions started
-const K_DEPTH = 'session-depth'; // hash: depth bucket -> sessions
+const K_DEPTH = 'session-depth'; // hash: pages-per-visit bucket -> visits
+const K_ART_DEPTH = 'session-article-depth'; // hash: articles-per-visit bucket -> visits
+const K_VISIT_TIME = 'visit-time-total'; // string: total measured ms across all pages
+const K_PAGE_DWELL_COUNT = 'page-dwell-count'; // string: pages with a measured time
 
 /** A session ends after this many idle seconds. */
 const SESSION_TTL = 30 * 60;
@@ -41,6 +45,21 @@ function depthBucket(pages: number): string {
   if (pages <= 5) return '4-5';
   if (pages <= 10) return '6-10';
   return '11+';
+}
+
+/** Minimal shape of the pipeline commands the bucket helper needs. */
+type BucketPipeline = { hincrby: (key: string, field: string, by: number) => unknown };
+
+/**
+ * Moves a visit from the bucket it was in to the one it has now grown into,
+ * so each visit is counted exactly once at its final depth.
+ */
+function rebucket(p: BucketPipeline, key: string, depth: number): void {
+  const before = depthBucket(depth - 1);
+  const after = depthBucket(depth);
+  if (before === after) return;
+  p.hincrby(key, before, -1);
+  p.hincrby(key, after, 1);
 }
 
 function todayUTC(): string {
@@ -135,7 +154,8 @@ export interface VisitResult {
   path: string;
   slug: string | null;
   views: number; // total views this path has ever had
-  sessionPages: number; // pages this visitor has seen in the current session
+  sessionPages: number; // pages this visitor has seen in the current visit
+  sessionArticles: number; // articles this visitor has read in the current visit
 }
 
 /**
@@ -153,9 +173,19 @@ export async function trackVisit(rawPath: string, meta: VisitMeta): Promise<Visi
   const slug = slugFromPath(path);
   const vid = cleanVisitorId(meta.visitorId);
 
-  // Bump the session counter first: its value is this visit's page depth, and
-  // a value of 1 means a brand new session (the key expired or never existed).
-  const sessionPages = vid ? await r.incr(K_SESSION(vid)) : 0;
+  // Bump the session counters first: their values are this visit's page and
+  // article depth, and a 1 means a brand new visit (the key expired or never
+  // existed). Both are needed before the main pipeline can bucket them.
+  let sessionPages = 0;
+  let sessionArticles = 0;
+  if (vid) {
+    const counters = r.pipeline();
+    counters.incr(K_SESSION(vid));
+    if (slug) counters.incr(K_ART_SESSION(vid));
+    const counted = (await counters.exec()) as unknown[];
+    sessionPages = Number(counted[0] ?? 0);
+    sessionArticles = slug ? Number(counted[1] ?? 0) : 0;
+  }
 
   const p = r.pipeline();
   p.hincrby(K_PAGES, path, 1); // result [0] — total views of this path
@@ -178,40 +208,57 @@ export async function trackVisit(rawPath: string, meta: VisitMeta): Promise<Visi
 
   if (vid) {
     p.expire(K_SESSION(vid), SESSION_TTL);
+    // Refreshed on every view, not just article views, so the two session keys
+    // always expire together and one visit can't be split into two.
+    p.expire(K_ART_SESSION(vid), SESSION_TTL);
     p.pfadd(K_VISITORS, vid);
     p.pfadd(K_VISITORS_DAY(today), vid);
     p.expire(K_VISITORS_DAY(today), VISITOR_DAY_TTL);
 
-    // Keep the depth histogram counting *sessions*, not page views: a session
-    // moves out of its old bucket as it grows rather than being counted twice.
+    // Keep the depth histograms counting *visits*, not views: a visit moves out
+    // of its old bucket as it grows rather than being counted twice.
     if (sessionPages <= 1) {
       p.hincrby(K_SESSIONS_DAILY, today, 1);
       p.hincrby(K_DEPTH, depthBucket(1), 1);
     } else {
-      const before = depthBucket(sessionPages - 1);
-      const after = depthBucket(sessionPages);
-      if (before !== after) {
-        p.hincrby(K_DEPTH, before, -1);
-        p.hincrby(K_DEPTH, after, 1);
-      }
+      rebucket(p, K_DEPTH, sessionPages);
+    }
+
+    if (slug) {
+      if (sessionArticles <= 1) p.hincrby(K_ART_DEPTH, depthBucket(1), 1);
+      else rebucket(p, K_ART_DEPTH, sessionArticles);
     }
   }
 
   const results = (await p.exec()) as unknown[];
-  return { path, slug, views: Number(results[0] ?? 0), sessionPages };
+  return { path, slug, views: Number(results[0] ?? 0), sessionPages, sessionArticles };
 }
 
-/** Records how long (ms) a reader stayed on an article. */
-export async function trackDwell(slug: string, ms: number): Promise<void> {
+/**
+ * Records how long (ms) a reader stayed on a page. Every page feeds the
+ * site-wide total that "time per visit" divides up; only article pages get
+ * their own per-slug average, which is what the engagement list ranks on.
+ */
+export async function trackDwell(rawPath: string, ms: number): Promise<void> {
   const r = getRedis();
-  if (!r) return;
+  const path = normalizePath(rawPath);
+  if (!r || !path) return;
+
   // Clamp to a sane range: ignore <1s (bounce noise) and cap at 1h.
   const clamped = Math.min(Math.max(Math.round(ms), 0), 60 * 60 * 1000);
   if (clamped < 1000) return;
-  await Promise.all([
-    r.hincrby(K_DWELL_TOTAL, slug, clamped),
-    r.hincrby(K_DWELL_COUNT, slug, 1),
-  ]);
+
+  const p = r.pipeline();
+  p.incrby(K_VISIT_TIME, clamped);
+  p.incr(K_PAGE_DWELL_COUNT);
+
+  const slug = slugFromPath(path);
+  if (slug) {
+    p.hincrby(K_DWELL_TOTAL, slug, clamped);
+    p.hincrby(K_DWELL_COUNT, slug, 1);
+  }
+
+  await p.exec();
 }
 
 // ---------------------------------------------------------------------------
@@ -243,10 +290,16 @@ export interface SiteStats {
   countries: Record<string, number>;
   dwellTotal: Record<string, number>;
   dwellCount: Record<string, number>;
-  /** YYYY-MM-DD -> sessions started that day. */
+  /** YYYY-MM-DD -> visits started that day. */
   sessionsDaily: Record<string, number>;
-  /** Depth bucket -> number of sessions that reached it. */
+  /** Pages-per-visit bucket -> number of visits that reached it. */
   depth: Record<string, number>;
+  /** Articles-per-visit bucket -> number of visits that reached it. */
+  articleDepth: Record<string, number>;
+  /** Total measured time on page across every page, in ms. */
+  visitTimeTotal: number;
+  /** How many page views contributed a measured time. */
+  pageDwellCount: number;
   /** Unique visitors, all time (HyperLogLog estimate). */
   visitors: number;
   /** YYYY-MM-DD -> unique visitors that day, for the requested window. */
@@ -271,6 +324,9 @@ const EMPTY_STATS: SiteStats = {
   dwellCount: {},
   sessionsDaily: {},
   depth: {},
+  articleDepth: {},
+  visitTimeTotal: 0,
+  pageDwellCount: 0,
   visitors: 0,
   visitorsDaily: {},
   window: [],
@@ -302,6 +358,9 @@ export async function getSiteStats(days = 30): Promise<SiteStats> {
     dwellCount,
     sessionsDaily,
     depth,
+    articleDepth,
+    visitTimeTotal,
+    pageDwellCount,
     visitors,
   ] = await Promise.all([
     r.hgetall<Record<string, number>>(K_VIEWS),
@@ -318,6 +377,9 @@ export async function getSiteStats(days = 30): Promise<SiteStats> {
     r.hgetall<Record<string, number>>(K_DWELL_COUNT),
     r.hgetall<Record<string, number>>(K_SESSIONS_DAILY),
     r.hgetall<Record<string, number>>(K_DEPTH),
+    r.hgetall<Record<string, number>>(K_ART_DEPTH),
+    r.get<number | string>(K_VISIT_TIME),
+    r.get<number | string>(K_PAGE_DWELL_COUNT),
     r.pfcount(K_VISITORS),
   ]);
 
@@ -347,6 +409,9 @@ export async function getSiteStats(days = 30): Promise<SiteStats> {
     dwellCount: asRecord(dwellCount),
     sessionsDaily: asRecord(sessionsDaily),
     depth: asRecord(depth),
+    articleDepth: asRecord(articleDepth),
+    visitTimeTotal: Number(visitTimeTotal ?? 0),
+    pageDwellCount: Number(pageDwellCount ?? 0),
     visitors: Number(visitors ?? 0),
     visitorsDaily,
     window,
