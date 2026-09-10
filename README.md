@@ -20,8 +20,12 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 The site has a private back office, all behind a shared login at `/login`.
 
-- **`/admin`** — analytics dashboard: most-viewed stories, average time on page,
-  referrers, top countries, and a 30-day views chart (custom tracking in Redis).
+- **`/admin`** — analytics dashboard (custom tracking in Redis): total page views
+  and article views with the date each started, unique visitors, pages per
+  visitor, pages per visit and average time on page; a 30-day chart of views and
+  unique visitors; most-viewed stories and most-visited pages with first/last-seen
+  dates; a pages-per-visit breakdown; referrers, top countries, and the articles
+  nobody has opened yet.
 - **`/admin/review`** — editorial review queue: approve writer submissions to
   publish them live, or reject with a note.
 - **`/admin/users`** — account management: create writer/admin accounts, change roles
@@ -72,6 +76,14 @@ but image uploads return an error.
 Custom analytics (referrers, country, dwell time) only collect data from the
 moment they're deployed — they do not backfill historical Vercel Analytics data.
 Country data comes from Vercel's geo headers, so it appears only in production.
+
+Views are counted in the browser (`PageTracker` in the root layout), so crawlers
+and readers who leave before hydration never appear — expect Vercel Analytics to
+read higher. `/admin`, `/writer` and `/login` are excluded. Unique visitors and
+"pages per visit" come from an anonymous random id in `localStorage`; a browser
+that blocks storage still counts as a view but not as a visitor. A visit ends
+after 30 idle minutes. Visitor counts use Redis HyperLogLogs, so they are
+estimates (within ~1%) and cost constant memory.
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 

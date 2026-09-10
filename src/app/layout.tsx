@@ -5,6 +5,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
+import PageTracker from '@/components/PageTracker';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 
@@ -31,6 +32,7 @@ export default function RootLayout({
         <Header />
         {children}
         <Footer />
+        <PageTracker />
         <Analytics />
         <SpeedInsights />
       </body>

@@ -6,7 +6,7 @@ import remarkGfm from 'remark-gfm';
 import { Category } from '@/lib/data';
 import { getByCategory } from '@/lib/content';
 import ArticleCard from '@/components/ArticleCard';
-import ViewTracker from '@/components/ViewTracker';
+import DwellTracker from '@/components/DwellTracker';
 import { buildArticleMeta, resolveArticlePage, type ArticlePageData } from './articleMeta';
 
 export const dynamic = 'force-dynamic';
@@ -35,7 +35,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
 
   return (
     <main>
-      <ViewTracker slug={slug} />
+      <DwellTracker slug={slug} />
       {/* Hero image */}
       <div className="relative w-full h-72 md:h-[440px] bg-[#e8efef]">
         <Image

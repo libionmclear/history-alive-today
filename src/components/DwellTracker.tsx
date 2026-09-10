@@ -2,17 +2,14 @@
 
 import { useEffect } from 'react';
 
-export default function ViewTracker({ slug }: { slug: string }) {
+/**
+ * Measures how long a reader actually spends on an article. The view itself is
+ * counted by PageTracker in the root layout; this only reports dwell time.
+ */
+export default function DwellTracker({ slug }: { slug: string }) {
   useEffect(() => {
-    // Record the view, passing the external referrer so the admin can see traffic sources.
-    fetch('/api/track-view', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ slug, referrer: document.referrer || null }),
-    }).catch(() => {});
-
-    // Measure dwell time: accumulate only while the tab is visible, then
-    // flush once when the reader leaves (tab hidden / navigates / closes).
+    // Accumulate only while the tab is visible, then flush once when the
+    // reader leaves (tab hidden / navigates / closes).
     const start = Date.now();
     let activeMs = 0;
     let lastResume = Date.now();
