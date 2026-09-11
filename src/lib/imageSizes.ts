@@ -282,6 +282,9 @@ export const imageSizes: Record<string, ImageSize> = {
   "/images/uploads/2026/09/giovanni-verga-portrait.jpg": { width: 1787, height: 2107 },
   "/images/uploads/2026/09/hemingway-milan-1918.jpg": { width: 760, height: 1281 },
   "/images/uploads/2026/09/italian-emigrants-ellis-island-1905.jpg": { width: 3656, height: 4664 },
+  "/images/uploads/2026/09/rossini-1829.jpg": { width: 1280, height: 1190 },
+  "/images/uploads/2026/09/templar-arrest-1307.jpg": { width: 1031, height: 669 },
+  "/images/uploads/2026/09/templars-burning-1314.jpg": { width: 952, height: 956 },
   "/images/uploads/2026/09/venice-rialto-carpaccio.jpg": { width: 2400, height: 2257 },
   "/images/uploads/2026/09/vienna-cafe-griensteidl-1896.jpg": { width: 1490, height: 997 },
 };

@@ -22,6 +22,17 @@ export const categoryLabels: Record<Category, string> = {
 
 export const articles: Article[] = [
   {
+    id: 66,
+    slug: 'who-cursed-friday-the-13th',
+    title: 'Who Cursed Friday the 13th?',
+    category: 'things-we-think',
+    categoryLabel: 'Things we think',
+    date: 'September 11, 2026',
+    author: 'Libion McLear',
+    excerpt: 'Buildings skip the thirteenth floor and nobody can tell you why. Four suspects, one of them a real atrocity — and the answer is not the one everybody gives.',
+    image: '/images/uploads/2026/09/templar-arrest-1307.jpg',
+  },
+  {
     id: 65,
     slug: 'your-cappuccino-is-named-after-a-monks-robe',
     title: 'The Holy Origins of Cappuccino',

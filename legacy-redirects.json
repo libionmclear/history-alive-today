@@ -1140,6 +1140,26 @@
     "permanent": true
   },
   {
+    "source": "/who-cursed-friday-the-13th",
+    "destination": "/article/who-cursed-friday-the-13th",
+    "permanent": true
+  },
+  {
+    "source": "/who-cursed-friday-the-13th/",
+    "destination": "/article/who-cursed-friday-the-13th",
+    "permanent": true
+  },
+  {
+    "source": "/:year(\\d{4})/:month(\\d{2})/who-cursed-friday-the-13th",
+    "destination": "/article/who-cursed-friday-the-13th",
+    "permanent": true
+  },
+  {
+    "source": "/:year(\\d{4})/:month(\\d{2})/who-cursed-friday-the-13th/",
+    "destination": "/article/who-cursed-friday-the-13th",
+    "permanent": true
+  },
+  {
     "source": "/who-discovered-pi-3-141592",
     "destination": "/article/who-discovered-pi-3-141592",
     "permanent": true
