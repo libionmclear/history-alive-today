@@ -22,6 +22,17 @@ export const categoryLabels: Record<Category, string> = {
 
 export const articles: Article[] = [
   {
+    id: 67,
+    slug: 'the-ancient-origins-of-fast-food',
+    title: 'The Ancient Origins of Fast Food',
+    category: 'things-we-do',
+    categoryLabel: 'Things we do',
+    date: 'September 11, 2026',
+    author: 'Libion McLear',
+    excerpt: 'White Castle, 1921. McDonald’s, 1948. We are fairly sure America invented eating standing up at a counter, in a hurry, out of paper. Pompeii had 158 of them.',
+    image: '/images/uploads/2026/09/roman-street-food-counter.jpg',
+  },
+  {
     id: 66,
     slug: 'who-cursed-friday-the-13th',
     title: 'Who Cursed Friday the 13th?',

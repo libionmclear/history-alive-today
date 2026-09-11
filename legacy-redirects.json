@@ -500,6 +500,26 @@
     "permanent": true
   },
   {
+    "source": "/the-ancient-origins-of-fast-food",
+    "destination": "/article/the-ancient-origins-of-fast-food",
+    "permanent": true
+  },
+  {
+    "source": "/the-ancient-origins-of-fast-food/",
+    "destination": "/article/the-ancient-origins-of-fast-food",
+    "permanent": true
+  },
+  {
+    "source": "/:year(\\d{4})/:month(\\d{2})/the-ancient-origins-of-fast-food",
+    "destination": "/article/the-ancient-origins-of-fast-food",
+    "permanent": true
+  },
+  {
+    "source": "/:year(\\d{4})/:month(\\d{2})/the-ancient-origins-of-fast-food/",
+    "destination": "/article/the-ancient-origins-of-fast-food",
+    "permanent": true
+  },
+  {
     "source": "/the-beginning-of-military-marching",
     "destination": "/article/the-beginning-of-military-marching",
     "permanent": true
