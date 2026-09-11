@@ -190,6 +190,7 @@ export const imageSizes: Record<string, ImageSize> = {
   "/images/uploads/2021/03/photography-of-the-cooper-children-of-kangaroo-point-brisbane-1884-454x640-454x640-1.jpg": { width: 454, height: 640 },
   "/images/uploads/2021/03/pie.jpg": { width: 921, height: 922 },
   "/images/uploads/2021/03/pizza-naples-italy.ngsversion.1532633876867.adapt_.1900.1-768x513.jpg": { width: 768, height: 513 },
+  "/images/uploads/2021/03/pizza-wood-fired-oven-naples.jpg": { width: 768, height: 336 },
   "/images/uploads/2021/03/plague-masks.jpg": { width: 450, height: 337 },
   "/images/uploads/2021/03/shamrock.jpg": { width: 634, height: 479 },
   "/images/uploads/2021/03/shutterstock_116350189-768x630.jpg": { width: 768, height: 630 },

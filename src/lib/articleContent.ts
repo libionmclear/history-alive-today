@@ -344,6 +344,7 @@ export const articleContent: Record<string, ContentSection[]> = {
   ],
 
   'flatbreads-and-the-evolution-of-pizza': [
+    { type: 'image', src: '/images/uploads/2021/03/pizza-wood-fired-oven-naples.jpg', alt: 'A Margherita pizza on the stone floor of a wood-fired brick oven in Naples, with a second pizza baking behind it and flames at the back.', caption: 'Pizza in a wood-fired oven, Naples' },
     { type: 'text', text: "Pizza is one of the most popular food worldwide, with millions of people biting into a hot slice or two every single day. Before there were pizza restaurants on every corner, round, thin flatbreads topped with a variety of vegetables, herbs, oils, meats, and cheeses were the first real street food of European antiquity. It's hard to imagine the first person to invent pizza not screaming \"Eureka!\" out of pure joy as he or she gazed upon their masterpiece." },
     { type: 'text', text: 'Unfortunately, we do not know exactly when pizza was first invented. There is no specific culinary tradition or cookbook allowing us to pinpoint any exact dates. Nevertheless, we know that the birth of pizza is a symbol of food evolution driven by necessity and poverty. At some point, someone put toppings on a traditional flatbread, and the great-grandfather of pizza was born.' },
     { type: 'heading', text: 'Flatbreads: Meet the Grandparents' },
