@@ -29,8 +29,12 @@ export default async function HomePage() {
             <div className="flex-1 h-[2px] bg-[rgba(247,157,22,0.35)]" />
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {/* Kronoscript is pinned to the 4th tile (top-right on desktop), outside the data */}
+            {popular.slice(0, 3).map((article) => (
+              <ArticleCard key={article.id} article={article} />
+            ))}
             <KronoscriptCard />
-            {popular.map((article) => (
+            {popular.slice(3).map((article) => (
               <ArticleCard key={article.id} article={article} />
             ))}
           </div>
