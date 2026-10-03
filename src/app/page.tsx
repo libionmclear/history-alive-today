@@ -1,5 +1,6 @@
 import Hero from '@/components/Hero';
 import ArticleCard from '@/components/ArticleCard';
+import KronoscriptCard from '@/components/KronoscriptCard';
 import { getPopular, getLatest, getRandomFeatured } from '@/lib/content';
 import { getViewCounts } from '@/lib/views';
 
@@ -9,7 +10,7 @@ export default async function HomePage() {
   const viewCounts = await getViewCounts();
   const [featured, popular, latest] = await Promise.all([
     getRandomFeatured(),
-    getPopular(8, viewCounts),
+    getPopular(7, viewCounts), // the Kronoscript card is the eighth tile
     getLatest(8),
   ]);
 
@@ -28,6 +29,7 @@ export default async function HomePage() {
             <div className="flex-1 h-[2px] bg-[rgba(247,157,22,0.35)]" />
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <KronoscriptCard />
             {popular.map((article) => (
               <ArticleCard key={article.id} article={article} />
             ))}

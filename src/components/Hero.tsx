@@ -43,6 +43,17 @@ export default function Hero({ featuredArticle }: HeroProps) {
                   {cat.label}
                 </Link>
               ))}
+              <a
+                href="https://kronoscript.com/?utm_source=historyalivetoday&utm_medium=button&utm_campaign=hero"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2.5 px-5 py-2 whitespace-nowrap bg-[#1F565B] text-white text-sm font-semibold rounded hover:bg-[#17444a] transition-colors uppercase tracking-wide"
+              >
+                <Image src="/images/kronoscript-mark.png" alt="" width={18} height={18} className="h-[18px] w-auto" />
+                Write your own History
+                <span className="hidden sm:inline opacity-60">·</span>
+                <span className="hidden sm:inline">Kronoscript</span>
+              </a>
             </div>
 
             {/* Social row */}
